@@ -1,6 +1,10 @@
 ---
 title: Home
 layout: default
+permalink: /:language/home/
+languages:
+- pl
+subset: home
 ---
 
 <div class="home">
@@ -24,7 +28,7 @@ layout: default
 			<div class="post-excerpt">
 			  {{ post.excerpt }}
 			  <p>
-				<a class="post-link" href="{{ post.url | prepend: site.baseurl }}">Read More &raquo;</a>
+				<a class="post-link" href="{{ post.url | prepend: site.baseurl }}">Więcej &raquo;</a>
 			  </p>
 			</div>
 		  </li>
@@ -33,8 +37,3 @@ layout: default
   </ul>
 
 </div>
-
-<script language="javascript">
-    window.location.href = "/pl/home"
-</script>
-
