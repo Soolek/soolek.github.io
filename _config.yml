@@ -18,14 +18,9 @@ include: ['assets']
 
 permalink: /posts/:title
 gems:
- - jekyll-paginate
- - jekyll-gist
- - jemoji
  - jekyll-language-plugin
  
 # Build settings
-paginate: 5
-paginate_path: "page:num"
 
 highlighter: rouge
 markdown: kramdown
