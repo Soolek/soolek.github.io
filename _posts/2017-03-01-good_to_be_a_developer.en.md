@@ -7,7 +7,7 @@ categories: developer
 languages:
 - en
 ---
-
+ 
 In the middle July 2016 - on Friday, when I was on my way to 3rd round of DriftOpen championship, I received a very strange call from work colleague:
 
 > "Hi, ..., our office is being closed now. Would you want to me to take something from your desk?"

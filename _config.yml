@@ -5,7 +5,7 @@ baseurl: "" # the prefix of your site uri, eg. `/jekyll-theme-EasyBook` or just 
 timezone: Europe/Warsaw
 encoding: utf-8
 description: Tomasz Sułkowski - .NET developer, Drifting racing driver.
-
+ 
 # Your information
 email: tomasz_sulkowski@wp.pl
 author: Tomasz Sułkowski

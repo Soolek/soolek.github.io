@@ -7,7 +7,7 @@ categories: developer
 languages:
 - pl
 ---
-
+ 
 W połowie lipca 2016 - konkretnie w piątek, kiedy to jechałem na zawody driftingowe DriftOpen w Koszalinie, dostałem dziwny telefon od kolegi z ówczesnej pracy:
 
 > "Cześć, eee, zamykają nam biuro i jest pytanie czy zabrać Tobie coś z biura?"

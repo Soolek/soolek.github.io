@@ -6,7 +6,7 @@
  *
  * This is just a extension for my theme.
  */
-
+ 
 function TOCize(toc, content, matchHeightTo) {
     if (!(toc && content && matchHeightTo)) return false
     
