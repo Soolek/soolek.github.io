@@ -1,4 +1,4 @@
----
+﻿---
 layout: post
 title:  "Positive sides of being a developer"
 date:   2017-03-01 17:00

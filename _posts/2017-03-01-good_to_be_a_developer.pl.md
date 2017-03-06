@@ -1,4 +1,4 @@
----
+﻿---
 layout: post
 title:  "Pozytywnie: Jak dobrze być programistą w dzisiejszych czasach"
 date:   2017-03-01 17:00
