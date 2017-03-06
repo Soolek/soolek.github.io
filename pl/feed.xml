@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CodeAndDrive.com</title>
+    <description>Tomasz Sułkowski - .NET developer, Drif racing driver.</description>
+    <link>http://www.CodeAndDrive.com/</link>
+    <atom:link href="http://www.CodeAndDrive.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Mon, 06 Mar 2017 21:13:58 +0000</pubDate>
+    <lastBuildDate>Mon, 06 Mar 2017 21:13:58 +0000</lastBuildDate>
+    <generator>Jekyll v3.1.2</generator>
+    
+		
+		  <item>
+			<title>Pozytywnie: Jak dobrze być programistą w dzisiejszych czasach</title>
+			<description>&lt;p&gt;W połowie lipca 2016 - konkretnie w piątek, kiedy to jechałem na zawody driftingowe DriftOpen w Koszalinie, dostałem dziwny telefon od kolegi z ówczesnej pracy:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“Cześć, eee, zamykają nam biuro i jest pytanie czy zabrać Tobie coś z biura?”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Niestety wrodzona podejrzliwość spowodowała że odebrałem to jako żart i musiałem tą sytuacje potwierdzić u innego kolegi. Informacja ta była tak nieprawdopodobna, że nie mogłem w nią uwierzyć. Swojego czasu przeżyłem upadek firmy ale na pewno nie spodziewałem się tego po firmie która dopiero co otworzyła swój nowy duży oddział w Polsce. Tak więc, kontynuowałem pakowanie i wyruszyłem w podróż z Gdańska do Koszalina.&lt;/p&gt;
+
+&lt;p&gt;Po drodze niestety ta informacja się potwierdziła - firma LowCostTravelGroup w której wtedy pracowałem ogłosiła bankructwo (&lt;a href=&quot;http://www.gazetakrakowska.pl/strefa-biznesu/a/krakow-lowcosttravelgroup-zbankrutowal-ponad-200-osob-stracilo-prace,10411642/&quot;&gt;http://www.gazetakrakowska.pl/strefa-biznesu/a/krakow-lowcosttravelgroup-zbankrutowal-ponad-200-osob-stracilo-prace,10411642/&lt;/a&gt;).&lt;/p&gt;
+
+&lt;h2 id=&quot;zwtpienie&quot;&gt;Zwątpienie&lt;/h2&gt;
+
+&lt;p&gt;Miałem już zawracać, bo budżet na starty dopinałem na ostatni guzik. Wpisowe jednak miałem już opłacone. Paliwo, opony jak i nocleg również, więc pozostało jedynie powalczyć z własną psychiką i cieszyć się z weekendu - a do tego problemu wrócić w poniedziałek.&lt;/p&gt;
+
+&lt;p&gt;Na moje szczęscie jestem programistą. Informacja o upadku firmy szybko doszła do headhunterów i zanim się spostrzegłem, już w niedzielę moja skrzynka pocztowa wyglądała następująco:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/posts/work_offers.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;…a ja ciągle nie mogłem uwierzyć jak szybko tak ważne sprawy mogły się potoczyć.&lt;/p&gt;
+
+&lt;p&gt;Także warto być programistą w dzisiejszych czasach - zachęcam do tego każdego kto jeszcze nie wie co chce w życiu robić jak i tych co rozważają zmiane profesji. Ja mogłem skończyć tak jak często przytaczany tekst o bezrobotnych programistach Twittera:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Rozmowa dwóch zwolnionych programistów:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Bezrobocie to było najgorsze pół godziny mojego życia&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;niema-tego-zego&quot;&gt;Niema tego złego…&lt;/h2&gt;
+
+&lt;p&gt;Ostatecznie podbudowany ilością ofert, dałem sobie 3 tygodnie na znalezienie pracy z której byłbym zadowolony, i była to najlepsza decyzja w moim życiu. Otóż, okazało się że nie tylko będę w stanie znaleźć ciekawą pracę, ale także taką w której będę mógł spełniać swoją pasję obcowania z samochodami - &lt;a href=&quot;http://www.delphikrakow.pl&quot;&gt;Delphi w Krakowie&lt;/a&gt;, gdzie miałem nadzieje pracować przy autonomicznych samochodach:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.youtube.com/watch?v=meTZKZp5QDY&quot;&gt;&lt;img src=&quot;/assets/images/youtube.png&quot; alt=&quot;&quot; class=&quot;yt-image-logo&quot; /&gt;&lt;img src=&quot;http://img.youtube.com/vi/meTZKZp5QDY/0.jpg&quot; alt=&quot;&quot; class=&quot;yt-image&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Pomimo, że zostałem zatrudniony jako .NET developer, szybko (praktycznie 3 dni od rozpoczęcia pracy) dostałem wyzwanie - napisać algorytm wizyjny do zaznaczania drogi i samochodów w C++. Wow - musiałem bardzo dużo się nauczyć w ekstremalnie krótkim czasie, ale to jest dokładnie to co chciałem robić - podążać w kierunku autonomicznych samochodów którę są idealnym połączeniem moich dwóch pasji: programowania oraz kierowania.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/images/posts/AutoLineMarker_sreenshot.jpg&quot;&gt;&lt;img src=&quot;/assets/images/posts/AutoLineMarker_sreenshot_m.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Dzięki mojej pasji sprawdziłem się znakomicie w tym zadaniu i mój program aktualnie jest wykorzystywany powszechnie do wspomagania oznaczania szczegółów na drodze.&lt;/p&gt;
+</description>
+			<pubDate>Wed, 01 Mar 2017 17:00:00 +0000</pubDate>
+			<link>http://www.CodeAndDrive.com/pl/posts/good_to_be_a_developer.pl</link>
+			<guid isPermaLink="true">http://www.CodeAndDrive.com/pl/posts/good_to_be_a_developer.pl</guid>
+			
+			
+			<category>developer</category>
+			
+		  </item>
+		
+    
+		
+    
+  </channel>
+</rss>

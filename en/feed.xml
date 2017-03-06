@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CodeAndDrive.com</title>
+    <description>Tomasz Sułkowski - .NET developer, Drif racing driver.</description>
+    <link>http://www.CodeAndDrive.com/</link>
+    <atom:link href="http://www.CodeAndDrive.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Mon, 06 Mar 2017 21:13:58 +0000</pubDate>
+    <lastBuildDate>Mon, 06 Mar 2017 21:13:58 +0000</lastBuildDate>
+    <generator>Jekyll v3.1.2</generator>
+    
+		
+    
+		
+		  <item>
+			<title>Positive sides of being a developer</title>
+			<description>&lt;p&gt;In the middle July 2016 - on Friday, when I was on my way to 3rd round of DriftOpen championship, I received a very strange call from work colleague:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“Hi, …, our office is being closed now. Would you want to me to take something from your desk?”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I thought that’s a joke at first, so I had to check it with my other colleague. This info was so absurd that I just couldn’t believe it (there is a very long notice time in Poland). I witnessed one company going bankrupt but I surely didn’t expect this from a company that just opened a new big office in Poland. So I proceeded with packing everything for drift competition and finally took off for a trip from Gdansk to Koszalin.&lt;/p&gt;
+
+&lt;p&gt;Unfortunately for me, the information about my current employer LowCostTravelGroup’s bankcrupcy has been proven (&lt;a href=&quot;http://www.gazetakrakowska.pl/strefa-biznesu/a/krakow-lowcosttravelgroup-zbankrutowal-ponad-200-osob-stracilo-prace,10411642/&quot;&gt;http://www.gazetakrakowska.pl/strefa-biznesu/a/krakow-lowcosttravelgroup-zbankrutowal-ponad-200-osob-stracilo-prace,10411642/&lt;/a&gt;).&lt;/p&gt;
+
+&lt;h2 id=&quot;at-first-there-was-doubt&quot;&gt;At first there was doubt&lt;/h2&gt;
+
+&lt;p&gt;I was just about to make a U-turn and travel back since my budged was very tight for each competition. My entry fee was already paid. Same can be said about fuel, tires and hotel as well - so after some re-thinking I decided to continue my journey and work just on my ruined psyche until Monday on my trip back.&lt;/p&gt;
+
+&lt;p&gt;Thankfully - I am a developer. Info about my employer going bankrupt spread very fast amongst headhunters and before I could even think what to do next, on Sunday (when I was still on track) my inbox looked like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/posts/work_offers.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;…I was still shocked how so important things in life can change so fast.&lt;/p&gt;
+
+&lt;p&gt;So, it is very good to be a developer in today’s times. I encourage everyone who still hasn’t decided what to do in life or thinks about changing his profession to become one. I could end up like famously quoted Twitter engineer:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The 37 minutes before I found a new job were the darkest moments of my life.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;not-as-bad-as-it-seems&quot;&gt;Not as bad as it seems…&lt;/h2&gt;
+
+&lt;p&gt;With the amount of job offers growing exponentially I decided to give myself 3 weeks for finding an offer that would suit me best, and that was the best decision I have ever made. As it turned out, not only I was able to find an interesting job, but also one in which I will be able to make use of my car driving passion - &lt;a href=&quot;http://www.delphikrakow.pl&quot;&gt;Delphi Krakow&lt;/a&gt;, where I hope to work near autonomous cars.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.youtube.com/watch?v=meTZKZp5QDY&quot;&gt;&lt;img src=&quot;/assets/images/youtube.png&quot; alt=&quot;&quot; class=&quot;yt-image-logo&quot; /&gt;&lt;img src=&quot;http://img.youtube.com/vi/meTZKZp5QDY/0.jpg&quot; alt=&quot;&quot; class=&quot;yt-image&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I was employed mostly to get involved with .NET related projects, but quickly (about on my 3rd day) I was given a challenge: write a vision algorithm for marking road and cars in C++. Wow, that escalated quickly! I had to be extremely swift and learn quickly to come up with a viable solution, but this is what I always wanted to do - to get involved with autonomous cars.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/images/posts/AutoLineMarker_sreenshot.jpg&quot;&gt;&lt;img src=&quot;/assets/images/posts/AutoLineMarker_sreenshot_m.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Thanks to both of my passions I went beyond any expectations and my program is currently commonly used in the company to aid in labelling details of the road.&lt;/p&gt;
+</description>
+			<pubDate>Wed, 01 Mar 2017 17:00:00 +0000</pubDate>
+			<link>http://www.CodeAndDrive.com/en/posts/good_to_be_a_developer.en</link>
+			<guid isPermaLink="true">http://www.CodeAndDrive.com/en/posts/good_to_be_a_developer.en</guid>
+			
+			
+			<category>developer</category>
+			
+		  </item>
+		
+    
+  </channel>
+</rss>
