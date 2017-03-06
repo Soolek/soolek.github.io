@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Positive sides of being a developer"
+title:  "Positive side of being a developer"
 date:   2017-03-01 17:00
 public: true
 categories: developer
