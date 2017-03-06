@@ -17,8 +17,12 @@ profile: Software developer, Drift racing driver
 include: ['assets']
 
 permalink: /posts/:title
+gems:
+ - jekyll-paginate
 
 # Build settings
+paginate: 5
+paginate_path: "page:num"
 
 highlighter: rouge
 markdown: kramdown
