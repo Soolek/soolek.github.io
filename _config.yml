@@ -3,8 +3,8 @@ title: CodeAndDrive.com
 url: "http://www.CodeAndDrive.com"    # the protocol and hostname of your site, eg. `http://laobubu.github.io`
 baseurl: "" # the prefix of your site uri, eg. `/jekyll-theme-EasyBook` or just one slash `/`
 timezone: Europe/Warsaw
-encoding: utf-8
-description: Tomasz Sułkowski - .NET developer, Drifting racing driver.
+encoding: UTF-8
+description: Tomasz Sułkowski - .NET developer, Drif racing driver.
  
 # Your information
 email: tomasz_sulkowski@wp.pl
@@ -13,11 +13,6 @@ avatar: "/assets/images/avatar.jpg"
 profile: Software developer, Drift racing driver
 #twitter_username: twitter_username
 #github_username:  github_username
-
-# Comment Service (Disqus or 多说)
-#  choose one and un-comment the line to active it
-#disqus_shortname: xxx   # get one: https://disqus.com/admin/signup/
-#duoshuo_shortname: xxx  # get one: http://duoshuo.com/create-site/
 
 include: ['assets']
 
