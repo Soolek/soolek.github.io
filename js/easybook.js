@@ -1,4 +1,4 @@
-﻿/*!
+/*!
  * EasyBook Jekyll Theme Javascript
  * 
  * http://laobubu.github.io/jekyll-theme-EasyBook
