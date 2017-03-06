@@ -19,6 +19,7 @@ include: ['assets']
 permalink: /posts/:title
 gems:
  - jekyll-paginate
+ - jekyll-language-plugin
 
 # Build settings
 paginate: 5
@@ -26,6 +27,10 @@ paginate_path: "page:num"
 
 highlighter: rouge
 markdown: kramdown
+
+language_data: data.lang.%%
+language_includes_dir: _i18n
+languages: ['en', 'pl']
 
 kramdown:
   input: GFM
