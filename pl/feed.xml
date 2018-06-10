@@ -2,12 +2,91 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>CodeAndDrive.com</title>
-    <description>Tomasz Sułkowski - .NET developer, Drift racing driver.</description>
+    <description>Tomasz Sułkowski - Software developer, Drift racing driver</description>
     <link>http://www.CodeAndDrive.com/</link>
     <atom:link href="http://www.CodeAndDrive.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 30 Oct 2017 23:41:36 +0100</pubDate>
-    <lastBuildDate>Mon, 30 Oct 2017 23:41:36 +0100</lastBuildDate>
+    <pubDate>Sun, 10 Jun 2018 20:45:39 +0100</pubDate>
+    <lastBuildDate>Sun, 10 Jun 2018 20:45:39 +0100</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
+    
+		
+		  <item>
+			<title>Autonomiczne prowadzenie przy pomocy trzech prostych algorytmów wizyjnych</title>
+			<description>&lt;p&gt;Celem tego wpisu jest zaznajomienie czytelnika z trzema prostymi algorytmami wizyjnymi dzięki którym można uzyskać prosty algorytm autonomicznego prowadzenia.&lt;/p&gt;
+
+&lt;p&gt;Autonomiczne prowadzenie jest bardzo skomplikowanym tematem. Aby poprowadzić samochód autonomicznie, duże sieci neuronowe, uczenie maszynowe oraz dużo inżynierii musi zostać użyte. Prymitywny algorytm autonomicznego prowadzenia może jednak zostać stworzony przy pomocy trzech prostych algorytmów wizyjnych, przedstawionych w tym wpisie. Efektywność tego algorytmu jest niska, ale jako że nie wymaga dodatkowej wiedzy ze sztucznej inteligencji, jest to bardzo dobry punkt początkowy do dalszych badań.&lt;/p&gt;
+
+&lt;p&gt;Celem tego algorytmu jest kierowanie wzdłuż drogi oraz kontrola prędkości odpowiednio do zakrętów. Aby zobaczyć algorytm w akcji, środowisko do jego przetestowania będzie potrzebne. Ponieważ testowanie w prawdziwym świecie jest drogie, skomplikowane i najprawdopodobniej nielegalne - wirtualne środowisko będzie użyte. Wybór jest bardzo duży: &lt;a href=&quot;http://carla.org/&quot;&gt;Carla&lt;/a&gt;, &lt;a href=&quot;https://github.com/Microsoft/AirSim&quot;&gt;AirSim&lt;/a&gt;, albo dowolna inna gra samochodowa ze wspaciem dla programistów, np. &lt;a href=&quot;https://www.rockstargames.com/V/&quot;&gt;GTAV&lt;/a&gt; wraz z &lt;a href=&quot;http://www.dev-c.com/gtav/scripthookv/&quot;&gt;ScriptHook&lt;/a&gt; albo &lt;a href=&quot;https://www.lfs.net/&quot;&gt;Live for speed&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Ponieważ celem tego wpisu jest skupienie się na autonomicznym prowadzeniu, oczywiste części implementacji są pominięte (Pobieranie widoku oraz danych z symulatora jak i przesyłanie sterowania). Przykładowa implementacja znajduje się tutaj: &lt;a href=&quot;https://github.com/Soolek/AutoCruise/tree/master/AutoCruise&quot;&gt;AutoCruise&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Uproszczony algorytm prowadzenia używa trzy algorytmy wizyjne korzystające z siebie po kolei: Perspektywa, Sobel i Przesuwane okno.&lt;/p&gt;
+
+&lt;h2 id=&quot;perspektywa&quot;&gt;Perspektywa&lt;/h2&gt;
+
+&lt;p&gt;Pierwszym użytym algorytmem wizyjnym jest Perspektywa. Tworzy on widok z góry samochodu na podstawie widoku z oczu kierowcy. Dzięki temu przekształceniu jest znacznie łatwiej znaleźć równoległe granice drogi niż gdyby zbiegały one do jednego punktu.&lt;/p&gt;
+
+&lt;p&gt;Transformacja perspektywy jest transformacją w trzech wymiarach, w ten sposób że dolna część obrazu będzie oddalona a górna przybliżona.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/posts/autonomous_driving_using_three_simple_vision_algorithms/perspective.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Taka transformacja może zostać stworzona manualnie, albo przy pomocy funkcji &lt;a href=&quot;https://docs.opencv.org/3.4.1/d9/dab/tutorial_homography.html&quot;&gt;FindHomography()&lt;/a&gt; z biblioteki opencv. Przy zastosowaniu drugiego podejścia, dolna część obrazu zostanie ściśnięta aby skontrować widok perspektywiczny projekcji świata trójwymiarowego na dwuwymiarowy ekran:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/posts/autonomous_driving_using_three_simple_vision_algorithms/perspective1.jpg&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;/assets/images/posts/autonomous_driving_using_three_simple_vision_algorithms/perspective2.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Posiadając macierz przekształcenia, nowa pozycja każdego piksela z obrazu źródłowego może zostać obliczona:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/posts/autonomous_driving_using_three_simple_vision_algorithms/perspective_matrix1.jpg&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;/assets/images/posts/autonomous_driving_using_three_simple_vision_algorithms/perspective_matrix2.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;…alternatywnie można użyć funkcji &lt;a href=&quot;https://docs.opencv.org/2.4/modules/imgproc/doc/geometric_transformations.html&quot;&gt;WarpPerspective()&lt;/a&gt; aby uzyskać przekształcony obraz&lt;/p&gt;
+
+&lt;h2 id=&quot;sobel&quot;&gt;Sobel&lt;/h2&gt;
+
+&lt;p&gt;Obraz przekształcony perspektywą jest przekazywany do następnego algorytmu wykrywającego krawędzie: Sobel. Jego zadaniem jest zaznaczenie krawędzi obrazu które powinny być “interesujące i ważne” dla algorytmu sterowania. Sobel zaznacza krawędzie obrazu które się odznaczają w osi X w porównaniu do tła.&lt;/p&gt;
+
+&lt;p&gt;W celu przybliżenia jego działania, uwaga będzie skupiona na małym wycinku obrazu, gdzie widoczny jest pas oddzielający pas drogowy od pobocza. Obraz jest czarnobiały i reprezentowany na 8 bitach (w przedziale od 0 do 255).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/posts/autonomous_driving_using_three_simple_vision_algorithms/sobel1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Na zaznaczonym wycinku widać jak wartości rosną z 119 do 149 z lewej do prawej. Algorytm Sobel zamienia obraz źródłowy poprzez porównywanie każdego piksela do jego prawego sąsiada. Wynik tego porównania jest zapisywany ponownie na obrazie. Ponieważ porównanie może być ujemne jak i dodatnie, do wyniku dodawane jest 128 (odpowiednik idealnie szarego koloru) dzięki czemu porównanie pozytywne będzie widoczne jako jasny piksel, a negatywne jako ciemny.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/posts/autonomous_driving_using_three_simple_vision_algorithms/sobel2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;W celu zwiększenia efektywności algorytmu Sobel, dodatkowy parametr został użyty: kernel. Definiuje on długość boku kwadratu użytego do obliczenia wartości sąsiadujących pikseli podczas porównywania zestawu pikseli do sąsiadujących pikseli. Dzięki takiej operacji obraz wyjściowy zawiera mniej szumu a więcej krawędzi które się odznaczają.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/posts/autonomous_driving_using_three_simple_vision_algorithms/sobel3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;przesuwane-okno&quot;&gt;Przesuwane okno&lt;/h2&gt;
+
+&lt;p&gt;Ostatnim użytym algorytmem wizyjnym jest Przesuwane okno. Jego zadaniem jest śledzenie krawędzi obrazu, które są najprawdopodobniej krawędziami jezdni. Ten algorytm jest całkiem odporny na zaszumione obrazy, ale mniej dokładny - wystarczająco jednak efektywny do zastosowania w prostym algorytmie autonomicznego prowadzenia.&lt;/p&gt;
+
+&lt;p&gt;Pierwszym krokiem w algorytmie Przesuwanego okna jest ustawienie okna poszukiwań (o konfigurowalnej wielkości) w miejscu gdzie krawędź drogi powinna być obecna: Przedni róg auta. Następnie okno poszukiwań jest przesuwane ku górze obrazu po najbardziej odznaczającej się krawędzi. Za każdym razem jak okno jest przesunięte ku górze (o jego wysokość), nowa pozycja w poziomie jest obliczona przy użyciu średniej ważonej wartościami pikseli: Im więcej pikseli (o większej wartości) jest znalezionych na danej pozycji poziomej w oknie poszukiwań, tym bardziej nowa pozycja okna poszukiwań będzie bliżej tej pozycji (w osi X). Te kroki są powtarzane aż okno poszukiwań wyjdzie poza granice obrazu.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/posts/autonomous_driving_using_three_simple_vision_algorithms/sliding_window.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Po tym, jak lewa oraz prawa strona Przesuwanego okna dojdzie do końca granicy obrazu, dwie ścieżki reprezentujące krawędzie drogi zostały stworzone.&lt;/p&gt;
+
+&lt;h2 id=&quot;driving-algorithm&quot;&gt;Driving algorithm&lt;/h2&gt;
+
+&lt;p&gt;Wraz z wyznaczeniem (prawdopodobnych) krawędzi drogi, prymitywny algorytm kierowania jest użyty: Utrzymuj około 50km/h wraz z zwalnianiem propocjonalnie do skrętu zakrętów oraz steruj tak aby utrzymać auto pomiędzy krawędziami jezdni. Kierowanie pomiędzy krawędziami jezdni to nie tylko utrzymywanie auta pomiędzy nimi ale także utrzymywanie jego równolegle do krawędzi. Stosunek tych dwóch zachowań wymaga dużo eksperymentów jeśli jest dokonywane manualnie. Aby uzyskać jak najwięcej z tego podejścia, uczenie maszynowe powinno zostać użyte z wykorzystaniem nagranych danych prowadzenia manualnego. W ten sposób algorytm autonomicznego prowadzenia powinień być w stanie kopiować zachowanie nagranego manualnego prowadzenia, ale ten temat zostanie przedstawiony w przyszłym wpisie bloga.&lt;/p&gt;
+
+&lt;p&gt;Ostatecznie, całość przedstawia się następująco:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://youtu.be/jKJhDTwFSVY?t=37&quot;&gt;&lt;img src=&quot;/assets/images/posts/autonomous_driving_using_three_simple_vision_algorithms/yt_link.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+			<pubDate>Fri, 01 Jun 2018 17:00:00 +0100</pubDate>
+			<link>http://www.CodeAndDrive.com/pl/posts/autonomous_driving_using_three_simple_vision_algorithms.pl</link>
+			<guid isPermaLink="true">http://www.CodeAndDrive.com/pl/posts/autonomous_driving_using_three_simple_vision_algorithms.pl</guid>
+			
+			
+			<category>developer</category>
+			
+		  </item>
+		
+    
+		
     
 		
 		  <item>
