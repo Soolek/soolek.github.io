@@ -1,0 +1,256 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Digital Platform - Configuration Store API",
+    "contact": {
+      "name": "Dualog - Your Digital Platform at Sea",
+      "url": "http://www.dualog.com",
+      "email": "support@dualog.com"
+    },
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "http://portainer-dev.dualog.net:13002"
+    }
+  ],
+  "paths": {
+    "/api/v1/Configuration/{id}": {
+      "get": {
+        "tags": [
+          "Configuration"
+        ],
+        "operationId": "GetById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Configuration"
+        ],
+        "summary": "Delete a configuration",
+        "operationId": "Delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The id of the configuration to delete",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/Configuration": {
+      "get": {
+        "tags": [
+          "Configuration"
+        ],
+        "summary": "Get all configurations in the configuration store",
+        "operationId": "List",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Configuration"
+        ],
+        "summary": "Add a new configuration to the configuration store",
+        "operationId": "Add",
+        "requestBody": {
+          "description": "The configuration to be added",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConfigurationDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConfigurationDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConfigurationDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Configuration"
+        ],
+        "summary": "Update an existing configuration",
+        "operationId": "Update",
+        "requestBody": {
+          "description": "The configuration to update",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConfigurationDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConfigurationDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConfigurationDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/Configuration/owner/{owner}/type/{type}": {
+      "get": {
+        "tags": [
+          "Configuration"
+        ],
+        "summary": "Get all configurations for a given owner of specified type",
+        "operationId": "Get",
+        "parameters": [
+          {
+            "name": "owner",
+            "in": "path",
+            "description": "The id of the organizational entity that owns the configurations",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "type",
+            "in": "path",
+            "description": "The type of configuration for which to fetch",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/Configuration/type/{type}": {
+      "get": {
+        "tags": [
+          "Configuration"
+        ],
+        "summary": "Get all configurations for a specified type",
+        "operationId": "GetByType",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "path",
+            "description": "The type of configuration for which to fetch",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/Configuration/reset/{id}": {
+      "post": {
+        "tags": [
+          "Configuration"
+        ],
+        "summary": "Publish a Dualog.Contracts.ConfigurationStore.ConfigurationReset event",
+        "operationId": "ResetConfiguration",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ConfigurationDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "owner": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "data": {
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}
