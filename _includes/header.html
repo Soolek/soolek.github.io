@@ -2,20 +2,20 @@
   <div class="wrapper">
     <a class="site-title" href="/index.html">{{ site.title }}</a>
 	<div class="site-languages">
-		{% for lang in site.languages %}
-			{% if page.lang == lang %}
-			  <a class="{{ lang }} active"></a>
+		{% for locale in site.languages %}
+			{% if page.locale == locale %}
+			  <a class="{{ locale }} active"></a>
 			{% endif %}
 		{% endfor %}
-		{% for lang in site.languages %}
-			{% if page.lang != lang %}
-			  <a href="{{ site.baseurl }}/{{ lang }}/home" class="{{ lang }} inactive"></a>
+		{% for locale in site.languages %}
+			{% if page.locale != locale %}
+			  <a href="{{ site.baseurl }}/{{ locale }}/home" class="{{ locale }} inactive"></a>
 			{% endif %}
 		{% endfor %}
 	</div>
     <nav class="site-nav">
       {% for sitepage in site.pages %}
-        {% if sitepage.title and sitepage.public and sitepage.lang == page.lang%}
+        {% if sitepage.title and sitepage.public and sitepage.locale == page.locale%}
         <a class="page-link" href="{{ sitepage.url | prepend: site.baseurl }}">{{ sitepage.title }}</a>
         {% endif %}
       {% endfor %}

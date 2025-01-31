@@ -2,10 +2,10 @@
 layout: post
 title:  "Autonomous driving using three simple vision algorithms"
 date:   2018-06-01 17:00
-permalink: /posts/:lang/autonomous_driving_using_three_simple_vision_algorithms/
+permalink: /posts/:locale/autonomous_driving_using_three_simple_vision_algorithms/
 public: true
 categories: developer
-lang: en
+locale: en
 ---
 
 The purpose of this post is to familiarize the reader with three vision algorithms used for a simple autonomous driving algorithm.
