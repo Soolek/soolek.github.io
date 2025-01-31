@@ -1,16 +1,17 @@
 ---
 title: Home
 layout: default
-language: en
-permalink: /:language/home/
+permalink: /:locale/home/
+lang: pl
+subset: home
 ---
  
 <div class="home">
   <!-- <a class="rss-link" href="/{{ page.language }}/feed.xml">RSS Feed</a> -->
-  <h1 class="page-heading">Code and Drive</h1>
+  <h1 class="page-heading">Kodowanie i Jazda</h1>
 
-  <p>Two things I am passionate about: software development and driving. Being able to code my behaviour allows me to improve my driving skills, which in turn results in better driving algorithms.</p>
-  <p>I will share my experiences from both programming and effective driving on this blog. Enjoy!</p>
+  <p>Pasjonuję się programowaniem oraz prowadzeniem samochodów. Kodowanie oraz analiza moich zachowań pozwala mi na dostrzeganie efektywniejszych sposobów na doskonalenie prowadzenia, co skutkuje coraz to lepszymi algorytmami prowadzenia auta.</p>
+  <p>Na blogu będę się dzielić swoimi doświadczeniami zarówno z programowania, jak i efektywnej jazdy. Miłej lektury!</p>
   
   <ul class="post-list">
     {% for post in site.posts %}
@@ -25,7 +26,7 @@ permalink: /:language/home/
 			<div class="post-excerpt">
 			  {{ post.excerpt }}
 			  <p>
-				<a class="post-link" href="{{ post.url | prepend: site.baseurl }}">Read More &raquo;</a>
+				<a class="post-link" href="{{ post.url | prepend: site.baseurl }}">Więcej &raquo;</a>
 			  </p>
 			</div>
 		  </li>

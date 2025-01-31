@@ -16,12 +16,12 @@ profile: Software developer, Drift racing driver
 
 include: ['assets']
 
-permalink: /posts/:title
+permalink: /:locale/:path/
 gems:
  - jekyll-paginate
  - jekyll-gist
  - jemoji
- - jekyll-language-plugin
+ - jekyll-multiple-languages-plugin
  
 # Build settings
 paginate: 5
@@ -33,6 +33,11 @@ markdown: kramdown
 language_data: data.lang.%%
 language_includes_dir: _i18n
 languages: ['en', 'pl']
+default_lang: en
+exclude_from_localizations:
+  - assets/
+  - images/
+  - _data/
 
 kramdown:
   input: GFM
