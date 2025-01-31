@@ -69,14 +69,34 @@
 	.site-nav {
 		text-align:right;
 		
-		a {
-			text-decoration: none;
-			color: $header-link;
-			padding: 10px 20px;
-			white-space: nowrap;
+		// a {
+		// 	text-decoration: none;
+		// 	color: $header-link;
+		// 	padding: 10px 20px;
+		// 	white-space: nowrap;
 		
-			&:hover, &:focus {
-				background: $header-bg-hover;
+		// 	&:hover, &:focus {
+		// 		background: $header-bg-hover;
+		// 	}
+		// }
+
+		a {
+			position: relative;
+			display: inline-block;
+			padding: 10px 20px;
+			margin: 5px;
+			color: #4bceff;
+			background-color: #00489b;
+			text-decoration: none;
+			border: 2px solid #ffeb08;
+			border-radius: 5px;
+			transition: all 0.3s ease-in-out;
+		
+			&:hover, &:focus { 
+				background-color: #4bceff;
+				color: #000;
+				box-shadow: 0 0 5px #ffeb08;
+				transform: translateY(-5px);
 			}
 		}
 	}
