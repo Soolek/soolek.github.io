@@ -3,7 +3,8 @@ layout: post
 title:  "Pozytywnie: Jak dobrze być programistą w dzisiejszych czasach"
 date:   2017-03-01 17:00
 public: true
-categories: pl developer
+categories: developer
+lang: pl
 ---
  
 W połowie lipca 2016 - konkretnie w piątek, kiedy jechałem na zawody driftingowe DriftOpen w Koszalinie, dostałem dziwny telefon od kolegi z ówczesnej pracy:

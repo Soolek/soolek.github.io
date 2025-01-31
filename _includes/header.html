@@ -4,7 +4,7 @@
 	<div class="site-languages">
 		{% for lang in site.languages %}
 			{% if page.lang == lang %}
-			  <a class="{{ locale }} active"></a>
+			  <a class="{{ lang }} active"></a>
 			{% endif %}
 		{% endfor %}
 		{% for lang in site.languages %}

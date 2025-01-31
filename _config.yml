@@ -14,7 +14,7 @@ profile: Software developer, Drift racing driver
 #twitter_username: twitter_username
 #github_username:  github_username
 
-include: ["assets", "_pages"]
+include: ["assets", "_pages", "_posts"]
 exclude: ["LICENSE.txt", "README.md"]
 
 highlighter: rouge

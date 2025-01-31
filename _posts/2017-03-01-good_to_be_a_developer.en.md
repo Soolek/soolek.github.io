@@ -3,7 +3,8 @@ layout: post
 title:  "Positive side of being a developer"
 date:   2017-03-01 17:00
 public: true
-categories: en developer
+categories: developer
+lang: en
 ---
  
 In the middle July 2016 - on Friday, when I was on my way to 3rd round of DriftOpen championship, I received a very strange call from work colleague:
