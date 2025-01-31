@@ -16,8 +16,8 @@ profile: Software developer, Drift racing driver
 
 include: ['assets']
 
-permalink: /:locale/:path/
-gems:
+permalink: /:locale/:title/
+plugins:
  - jekyll-paginate
  - jekyll-gist
  - jemoji
@@ -32,7 +32,9 @@ markdown: kramdown
 
 language_data: data.lang.%%
 language_includes_dir: _i18n
-languages: ['en', 'pl']
+languages:
+  - en
+  - pl
 default_lang: en
 exclude_from_localizations:
   - assets/
