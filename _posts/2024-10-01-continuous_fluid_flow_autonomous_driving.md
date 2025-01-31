@@ -1,0 +1,11 @@
+---
+layout: post
+title:  "Autonomous Driving using Fluid Flow Simulation"
+date:   2024-10-01 17:00
+public: false
+categories: developer
+lang: en
+---
+
+Autonomous Driving using Fluid Flow Simulation
+[![](https://img.youtube.com/vi/xGgcfZS4uHU/0.jpg)](https://www.youtube.com/watch?v=xGgcfZS4uHU)
