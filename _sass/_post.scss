@@ -53,9 +53,19 @@
             display: flex;
             justify-content: space-between;
         }
-        .image-container a img {
+        .image-container a {
             width: 24%;
             height: auto;
+        }
+
+		.iframe-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        iframe {
+            width: 80%; /* Adjust the width as needed */
+            height: 80%; /* Adjust the height as needed */
         }
         
         .middle-image {
