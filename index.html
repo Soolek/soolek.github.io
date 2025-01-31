@@ -1,115 +1,10 @@
-<!DOCTYPE html>
-<html>
+---
+title: Home
+layout: default
+---
 
-  <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
- 
-  <title>Home « CodeAndDrive.com</title>
-  <meta name="description" content="Tomasz Sułkowski - Software developer, Drift racing driver">
-  <meta name="Keywords" content="tomasz, sułkowski, tommy, drift, driftopen, drifting, .net, developer, coder, architect, drive, technique, vision, algorithms">
-  
-  <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://www.CodeAndDrive.com/">
-  <link rel="alternate" type="application/rss+xml" title="CodeAndDrive.com" href="http://www.CodeAndDrive.com/feed.xml" />
-</head>
-
- 
-  <body>
-
-		<!-- facebook -->
-<div id="fb-root"></div>
-<script>
-(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
-</script>
-
-<!-- google analytics -->
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-82822885-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
- 
-<header class="header">
-  <div class="wrapper">
-    <a class="site-title" href="/index.html">CodeAndDrive.com</a>
-	<div class="site-languages">
-		
-			
-		
-			
-		
-		
-			
-			  <a href="/en/home" class="en inactive"></a>
-			
-		
-			
-			  <a href="/pl/home" class="pl inactive"></a>
-			
-		
-	</div>
-    <nav class="site-nav">
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    </nav>
-  </div>
-</header>
-
-<div class="sub-header">
-	<div class="wrapper">
-		<a href="http://www.mikinka-projekt.com/" target="blank">
-			<img src="/assets/images/partners/mikinka1.png">
-		</a>
-	</div>
-</div>
-
-		<div class="page-content">
-		
-		  <div class="wrapper">
-			
-			<div class="col-main">
-			  <div class="home">
-  <!-- <a class="rss-link" href="//feed.xml">RSS Feed</a> -->
+<div class="home">
+  <!-- <a class="rss-link" href="/{{ page.language }}/feed.xml">RSS Feed</a> -->
   <h1 class="page-heading">Kodowanie i Jazda</h1>
  
   <p>Pasjonuje się programowaniem jak i prowadzeniem samochodów. Programowanie oraz analiza moich zachowań pozwala mi na dostrzeganie efektywniejszych sposobów na doskonalenie mojej jazdy, co w zamian skutkuje coraz to lepszymi algorytmami prowadzenia autem.</p>
@@ -117,15 +12,24 @@
   <p>Na tym blogu będę się dzielić swoimi doświadczeniami z programowania jak i efektywnej jazdy. Miłej lektury!</p>
   
   <ul class="post-list">
-    
-		
-    
-		
-    
-		
-    
-		
-    
+    {% for post in site.posts %}
+		{% if post.language == page.language %}
+		  <li>
+			<h2>
+			  <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+			</h2>
+			
+			<div class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</div>
+
+			<div class="post-excerpt">
+			  {{ post.excerpt }}
+			  <p>
+				<a class="post-link" href="{{ post.url | prepend: site.baseurl }}">Read More &raquo;</a>
+			  </p>
+			</div>
+		  </li>
+		{% endif %}
+    {% endfor %}
   </ul>
 
 </div>
@@ -134,64 +38,3 @@
     window.location.href = "/pl/home"
 </script>
 
-
-			</div>
-			<div class="col-second">
-			  <div class="col-box col-box-author">
-	<div class="col-box-title name contact-button">
-    Tomasz Sułkowski 
-    <br>
-    <a class="contact-button" href="mailto:tomasz_sulkowski@wp.pl">tomasz_sulkowski@wp.pl</a>
-  </div>
-	<img class="avatar" src="/assets/images/avatar.jpg" alt="Tomasz Sułkowski">
-	<p>Software developer, Drift racing driver</p>
-  <!--
-  <p class="contact">
-	
-    <a href="mailto:tomasz_sulkowski@wp.pl">Email</a>
-    
-	
-    
-  </p>
-  -->
-</div>
- 
-<div class="col-box">
-  <p>
-	LinkedIn:
-	<!-- <script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
-	<script type="IN/MemberProfile" data-id="https://www.linkedin.com/in/tomaszsulkowski" data-format="hover" data-related="false" data-text="Tomasz Sułkowski"></script> -->
-  <a href="https://www.linkedin.com/in/tomaszsulkowski">Tomasz Sułkowski</a>
-  </p>
-  <!-- <p>
-	<div class="fb-page" data-href="https://www.facebook.com/TomaszSulkowskiDrift/" data-tabs="timeline" data-width="260" data-height="70" data-small-header="true" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/TomaszSulkowskiDrift/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/TomaszSulkowskiDrift/">Tomasz Sułkowski Drifting</a></blockquote></div>
-  </p> -->
-</div>
-
-<div class="col-box">
-  <div class="col-box-title">Blog</div>
-  <ul class="post-list">
-    
-		
-    
-		
-    
-		
-    
-		
-    
-  </ul>
-</div>
-
-<div class="col-box post-toc hide">
-  <div class="col-box-title">TOC</div>
-</div>
-			</div>
-			
-		  </div>
-
-		</div>
-
-  </body>
-
-</html>

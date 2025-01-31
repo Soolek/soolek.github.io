@@ -1,0 +1,36 @@
+---
+title: Home
+layout: default
+language: en
+permalink: /:language/home/
+---
+ 
+<div class="home">
+  <!-- <a class="rss-link" href="/{{ page.language }}/feed.xml">RSS Feed</a> -->
+  <h1 class="page-heading">Code and Drive</h1>
+
+  <p>Two things I am passionate about: software development and driving. Being able to code my behaviour allows me to improve my driving skills, which in turn results in better driving algorithms.</p>
+  <p>I will share my experiences from both programming and effective driving on this blog. Enjoy!</p>
+  
+  <ul class="post-list">
+    {% for post in site.posts %}
+		{% if post.language == page.language %}
+		  <li>
+			<h2>
+			  <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+			</h2>
+			
+			<div class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</div>
+
+			<div class="post-excerpt">
+			  {{ post.excerpt }}
+			  <p>
+				<a class="post-link" href="{{ post.url | prepend: site.baseurl }}">Read More &raquo;</a>
+			  </p>
+			</div>
+		  </li>
+		{% endif %}
+    {% endfor %}
+  </ul>
+
+</div>

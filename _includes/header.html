@@ -1,0 +1,32 @@
+<header class="header">
+  <div class="wrapper">
+    <a class="site-title" href="/index.html">{{ site.title }}</a>
+	<div class="site-languages">
+		{% for language in site.languages %}
+			{% if page.language == language %}
+			  <a class="{{ language }} active"></a>
+			{% endif %}
+		{% endfor %}
+		{% for language in site.languages %}
+			{% if page.language != language %}
+			  <a href="{{ site.baseurl }}/{{ language }}/home" class="{{ language }} inactive"></a>
+			{% endif %}
+		{% endfor %}
+	</div>
+    <nav class="site-nav">
+      {% for sitepage in site.pages %}
+        {% if sitepage.title and sitepage.public and sitepage.language == page.language%}
+        <a class="page-link" href="{{ sitepage.url | prepend: site.baseurl }}">{{ sitepage.title }}</a>
+        {% endif %}
+      {% endfor %}
+    </nav>
+  </div>
+</header>
+
+<div class="sub-header">
+	<div class="wrapper">
+		<!-- <a href="http://www.mikinka-projekt.com/" target="blank">
+			<img src="/assets/images/partners/mikinka1.png">
+		</a> -->
+	</div>
+</div>
