@@ -15,8 +15,8 @@
 	</div>
     <nav class="site-nav">
       {% for sitepage in site.pages %}
-        {% if sitepage.title and sitepage.public and sitepage.lang == page.lang %}
-        <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+        {% if sitepage.title and sitepage.public and sitepage.lang == page.lang and sitepage.layout == "default" %}
+        <a class="page-link" href="{{ sitepage.url | prepend: site.baseurl }}">{{ sitepage.title }}</a>
         {% endif %}
       {% endfor %}
     </nav>
