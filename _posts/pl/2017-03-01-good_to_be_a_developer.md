@@ -2,7 +2,6 @@
 layout: post
 title:  "Pozytywnie: Jak dobrze być programistą w dzisiejszych czasach"
 date:   2017-03-01 17:00
-permalink: /posts/:locale/good_to_be_a_developer/
 public: true
 categories: developer
 locale: pl
