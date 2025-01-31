@@ -14,8 +14,8 @@
 		{% endfor %}
 	</div>
     <nav class="site-nav">
-      {% for page in site.pages %}
-        {% if page.title and page.public and page.lang == page.lang and page.layout == "default" %}
+      {% for sitepage in site.pages %}
+        {% if sitepage.title and sitepage.public and pasitepagege.lang == page.lang and sitepage.layout == "default" %}
         <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
         {% endif %}
       {% endfor %}
