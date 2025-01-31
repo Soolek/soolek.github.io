@@ -39,4 +39,4 @@ paginate_path: "page:num"
 
 # jekyll-multiple-languages-plugin settings:
 languages: ["en", "pl"]
-exclude_from_localizations: ["_data", "assets", "images", "css", "js"]
+exclude_from_localizations: ["assets", "images", "css", "js"]
