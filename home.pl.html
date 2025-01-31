@@ -16,7 +16,7 @@ subset: home
   
   <ul class="post-list">
     {% for post in site.posts %}
-		{% if post.lang == page.lang %}
+		{% if post.lang == page.lang and post.public %}
 		  <li>
 			<h2>
 			  <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
