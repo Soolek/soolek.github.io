@@ -5,9 +5,9 @@ layout: default
 
 {% case page.lang %}
   {% when "en" %}
-    {% include home.en.html %}
+  	{% include_relative home.en.html %}
   {% when "pl" %}
-    {% include home.pl.html %}
+    {% include_relative home.pl.html %}
   {% else %}
-    {% include home.en.html %}
+    {% include_relative home.en.html %}
 {% endcase %}
