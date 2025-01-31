@@ -3,8 +3,7 @@ layout: post
 title:  "Autonomiczne prowadzenie przy pomocy trzech prostych algorytmów wizyjnych"
 date:   2018-06-01 17:00
 public: true
-categories: developer
-locale: pl
+categories: pl developer
 ---
 
 Celem tego wpisu jest zaznajomienie czytelnika z trzema prostymi algorytmami wizyjnymi dzięki którym można uzyskać prosty algorytm autonomicznego prowadzenia.
