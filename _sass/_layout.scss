@@ -254,7 +254,7 @@ body {
 @include media-query($on-palm) {
 	.header {
 		&, .site-nav{
-			text-align:center;
+			text-align:right;
 		}
 		.site-title {
 			float: none;
