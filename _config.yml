@@ -32,6 +32,7 @@ plugins:
  - jekyll-gist
  - jemoji
  - jekyll-multiple-languages-plugin
+ - jekyll-cache-bust
  
 # Paginate
 paginate: 5
