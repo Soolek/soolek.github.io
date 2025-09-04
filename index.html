@@ -3,13 +3,30 @@ title: Home
 layout: default
 ---
 
+<!-- JavaScript language detection -->
 <script language="javascript">
-    window.location.href = "/en/home"
+    // Get the browser language
+    var userLang = navigator.language || navigator.userLanguage;
+    
+    // Check if language starts with 'pl' (Polish)
+    if (userLang.toLowerCase().startsWith('pl')) {
+        window.location.href = "/pl/home";
+    } else {
+        // Default to English for all other languages
+        window.location.href = "/en/home";
+    }
 </script>
 
+<!-- Fallback -->
+<div class="language-selection">
+    <h1>Choose your language / Wybierz język:</h1>
+    <ul>
+        <li><a href="/en/home">English</a></li>
+        <li><a href="/pl/home">Polski</a></li>
+    </ul>
+</div>
+
 {% case page.lang %}
-  {% when "en" %}
-  	{% include_relative home.en.html %}
   {% when "pl" %}
     {% include_relative home.pl.html %}
   {% else %}
