@@ -142,6 +142,27 @@ body {
 	img {
 		max-width:100%;
 	}
+
+	a .submenu{
+		position: relative;
+		display: inline-block;
+		padding: 0 5px;
+		margin-right: 5px;
+		color: $header-link;
+		// background-color: #00489b;
+		text-decoration: none;
+		border: 2px solid $header-bg-hover;
+		border-radius: 10px;
+		transition: all 0.3s ease-in-out;
+	
+		&:hover, &:focus { 
+			background-color: #4bceff;
+			color: #000;
+			box-shadow: 0 0 5px #ffeb08;
+			border: 2px solid #ffeb08;
+			transform: translateY(-5px);
+		}
+	}
 }
 
 // Colum
