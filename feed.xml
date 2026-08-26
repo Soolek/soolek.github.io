@@ -8,14 +8,19 @@ layout: null
     <description>{{ site.description | xml_escape }}</description>
     <link>{{ "/" | absolute_url }}</link>
     <atom:link href="{{ "/feed.xml" | absolute_url }}" rel="self" type="application/rss+xml"/>
+    <language>{{ site.lang }}</language>
     <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
     <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
     <generator>Jekyll v{{ jekyll.version }}</generator>
+    {%- comment %} One feed for both languages: every item carries its own xml:lang. Root-relative src/href in the
+       post body are made absolute, since feed readers cannot resolve them against the site. {% endcomment %}
+    {%- capture src_abs %}src="{{ site.url }}/{% endcapture %}
+    {%- capture href_abs %}href="{{ site.url }}/{% endcapture %}
     {%- assign public_posts = site.posts | where_exp: "post", "post.public == true" %}
     {%- for post in public_posts limit:10 %}
-    <item>
+    <item xml:lang="{{ post.lang | default: site.lang }}">
       <title>{{ post.title | xml_escape }}</title>
-      <description>{{ post.content | xml_escape }}</description>
+      <description>{{ post.content | replace: 'src="/', src_abs | replace: 'href="/', href_abs | xml_escape }}</description>
       <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
       <link>{{ post.url | absolute_url }}</link>
       <guid isPermaLink="true">{{ post.url | absolute_url }}</guid>

@@ -7,30 +7,10 @@
   </div>
   <img class="avatar" src="{{ site.avatar | relative_url }}" width="365" height="365" alt="{{ site.author }}">
   <p>{{ site[profile_key] | default: site.profile }}</p>
-  <!--
-  <p class="contact">
-	{% if site.email %}
-    <a href="mailto:{{ site.email }}">Email</a>
-    {% endif %}
-	{% if site.github_username %}
-    <a href="https://github.com/{{ site.github_username }}">GitHub</a>
-    {% endif %}
-    {% if site.twitter_username %}
-    <a href="https://twitter.com/{{ site.twitter_username }}">Twitter</a>
-    {% endif %}
-  </p>
-  -->
 </div>
 
-<!-- <div class="col-box">
-  <p>
-	LinkedIn:
-  <a href="https://www.linkedin.com/in/tomaszsulkowski">Tomasz Sułkowski</a>
-  </p>
-</div> -->
-
 <div class="col-box">
-  <div class="col-box-title">Blog</div>
+  <h2 class="col-box-title">Blog</h2>
   <ul class="post-list">
     {%- assign lang_posts = site.posts | where: "lang", page_lang | where_exp: "post", "post.public == true" %}
     {%- for post in lang_posts limit:5 %}

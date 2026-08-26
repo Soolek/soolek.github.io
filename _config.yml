@@ -1,7 +1,7 @@
 # Site settings
 title: CodeAndDrive.com
-url: "https://codeanddrive.com"    # the protocol and hostname of your site, eg. `http://laobubu.github.io`
-baseurl: "" # the prefix of your site uri, eg. `/jekyll-theme-EasyBook` or just one slash `/`
+url: "https://codeanddrive.com"    # protocol + host, no trailing slash (absolute_url, jekyll-seo-tag, sitemap)
+baseurl: ""   # empty on the apex domain; would be the sub-path prefix on a project page
 timezone: Europe/Warsaw
 encoding: UTF-8
 lang: en   # default for pages without `lang:` front matter (<html lang>, jekyll-seo-tag, template fallbacks)
@@ -14,8 +14,6 @@ author: Tomasz Sułkowski
 avatar: "/assets/images/avatar.jpg"
 profile: Software developer, Drift racing driver
 profile_pl: Programista, kierowca driftingowy
-#twitter_username: twitter_username
-#github_username:  github_username
 
 # Social profiles - jekyll-seo-tag emits them as JSON-LD `sameAs` links
 social:
@@ -35,6 +33,9 @@ exclude: ["LICENSE", "README.md", "Gemfile", "Gemfile.lock", "vendor", "node_mod
 
 highlighter: rouge
 markdown: kramdown
+
+sass:
+  style: compressed
 
 kramdown:
   input: GFM

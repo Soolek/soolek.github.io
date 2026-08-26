@@ -24,7 +24,7 @@ blockquote {
 	background: #FFF;
 	margin:0;
 	padding: 5px 20px;
-	border-left: 10px solid #CCC;
+	border-left: 10px solid $border-color;
 }
 code,pre {
 	font-family:  $code-font-family;
@@ -47,12 +47,6 @@ pre, pre code {
 pre code {
 	padding: 0;	
 }
-.hide {
-    display: none;
-}
-.center {
-	text-align: center;
-}
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
@@ -61,7 +55,7 @@ table {
 	background: #FFF;
 
 	td, th {
-		border: 1px solid #CCC;
+		border: 1px solid $border-color;
 		padding: 5px 15px;
 		margin: 0;
 	}

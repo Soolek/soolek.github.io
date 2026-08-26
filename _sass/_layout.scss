@@ -1,19 +1,29 @@
 .wrapper {
 	margin: 0 auto;
 	max-width: 1100px;
-	min-height: 100%;
 }
-@media (max-width: 1120px) {
-	.wrapper {
-		max-width: 800px;
+
+// Keyboard users: the first tab stop jumps over the header to <main id="content">
+.skip-link {
+	position: absolute;
+	left: -999px;
+	top: 0;
+	z-index: 100;
+	padding: 8px 12px;
+	background: #fff;
+	color: $color-link;
+
+	&:focus {
+		left: 10px;
+		top: 10px;
 	}
-} 
+}
 
 .header {
 	background-color: $header-bg;
 	padding: 4px 10px;
 	margin: 0;
-	border-bottom: 3px groove #719aa7;
+	border-bottom: 3px groove $header-border;
 
 	.wrapper {
 		display: flex;
@@ -46,7 +56,6 @@
 			height: 20px;
 			background: url('/assets/images/languages/pl.jpg') no-repeat;
 			background-position: center;
-			color: red;
 		}
 		.en {
 			display: inline-block;
@@ -54,7 +63,6 @@
 			height: 20px;
 			background: url('/assets/images/languages/en.jpg') no-repeat;
 			background-position: center;
-			color: blue;
 		}
 		
 		.inactive {
@@ -71,33 +79,21 @@
 		justify-content: flex-end;
 		gap: 5px;
 		line-height: $base-font-size * 2;
-		
-		// a {
-		// 	text-decoration: none;
-		// 	color: $header-link;
-		// 	padding: 10px 20px;
-		// 	white-space: nowrap;
-		
-		// 	&:hover, &:focus {
-		// 		background: $header-bg-hover;
-		// 	}
-		// }
 
 		a {
 			display: inline-block;
 			padding: 0 5px;
 			color: $header-link;
-			// background-color: #00489b;
 			text-decoration: none;
-			border: 2px solid $header-bg-hover;
+			border: 2px solid $nav-link-border;
 			border-radius: 10px;
 			transition: all 0.3s ease-in-out;
 		
 			&:hover, &:focus { 
-				background-color: #4bceff;
+				background-color: $accent;
 				color: #000;
-				box-shadow: 0 0 5px #ffeb08;
-				border: 2px solid #ffeb08;
+				box-shadow: 0 0 5px $accent-glow;
+				border: 2px solid $accent-glow;
 				transform: translateY(-5px);
 			}
 		}
@@ -122,17 +118,12 @@ body {
 		position: relative;
 		background-color:rgba(250, 250, 250, 0.95);
 		box-shadow: 0 1px 4px #999;
-		outline: 1px solid #CCC;
+		outline: 1px solid $border-color;
 		&:after {
 			clear:both;
 			content: '';
 			display:block;
 		}
-	}
-	
-	img {
-		max-width:100%;
-		height: auto;
 	}
 }
 
@@ -161,12 +152,12 @@ body {
 	}
 }
 
-// Colum
+// Columns
 .col-main {
 	position: relative;
 	box-sizing: border-box;
 	padding: 30px;
-	width: 800px;
+	width: $content-width;
 	float: left;
 }
 .col-second {
@@ -192,7 +183,7 @@ body {
     }
 	
 	&:not(:first-child) {
-    	border-top: 1px solid #ccc;
+    	border-top: 1px solid $border-color;
     	padding-top: 20px;
     }
     
@@ -201,37 +192,13 @@ body {
 	    margin-bottom: 10px;
 	    font-size: $small-font-size * 1.1;
     }
-}
-@media (max-width: 1120px) {
-	.page-content .wrapper:before {
-		display: none;
-	}
-	.col-main,
-	.col-second {
-		width: auto;
-		float: none;
-	}
-	.col-box {
-		width: 50%;
-		float: left;
-		margin-bottom: 10px;
-	}
-	.col-box:not(:first-child) {
-		border-top: none;
-		padding-top:0;
-	}
-	.col-second:after {
-		clear: both;
-		display: block;
-		content: ' ';
-	}
+    h2.col-box-title {
+    	margin-top: 0;   // the sidebar headings are <h2>s styled like the author box title
+    }
 }
 .col-box-author {
 	text-align: center;
 	.avatar {
-		/*width: 135px;
-		height: 135px;
-		border-radius: 100%;*/
 		margin: 20px auto;
 		display: block;
 	}
@@ -270,8 +237,30 @@ body {
 	}
 }
 
-@import "post", "home", "driver";
-
+@include media-query($on-desktop, all) {
+	.wrapper {
+		max-width: $content-width;
+	}
+	.col-main,
+	.col-second {
+		width: auto;
+		float: none;
+	}
+	.col-box {
+		width: 50%;
+		float: left;
+		margin-bottom: 10px;
+	}
+	.col-box:not(:first-child) {
+		border-top: none;
+		padding-top:0;
+	}
+	.col-second:after {
+		clear: both;
+		display: block;
+		content: ' ';
+	}
+}
 @include media-query($on-laptop) {
 	.page-content {
 		padding: 0;
@@ -305,8 +294,5 @@ body {
 	}
 	table td, table th {
 		padding: 5px 8px;
-	}
-	.post .post-content .iframe-container {
-		width: 100%;
 	}
 }

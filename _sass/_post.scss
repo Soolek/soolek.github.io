@@ -35,7 +35,7 @@
         }
         
         h1, h2, h3 {
-            border-bottom: 1px solid #CCC;
+            border-bottom: 1px solid $border-color;
         }
         
         pre {
@@ -44,28 +44,34 @@
 		        margin: 0 -10px;
             }
         }
+    }
+}
 
-        .image-container {
-            display: flex;
-            justify-content: center;
-            margin: 1em 0;
-        }
-        .image-container a {
-            display: block;
-            max-width: 100%;
-        }
+// Media blocks usable in any .post-content (posts, developer and driver pages)
+.post-content {
+    .image-container {
+        display: flex;
+        justify-content: center;
+        margin: 1em 0;
+    }
+    .image-container a {
+        display: block;
+        max-width: 100%;
+    }
 
-        .iframe-container {
-            width: 80%;
-            max-width: 640px;
-            margin: 1em auto;
-        }
-        .iframe-container iframe {
-            display: block;
+    .iframe-container {
+        width: 80%;
+        max-width: 640px;
+        margin: 1em auto;
+        @include media-query($on-palm) {
             width: 100%;
-            height: auto;
-            aspect-ratio: 16 / 9;
         }
+    }
+    .iframe-container iframe {
+        display: block;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
     }
 }
 

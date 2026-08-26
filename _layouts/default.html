@@ -5,6 +5,7 @@
   {% include head.html %}
 
   <body>
+    <a class="skip-link" href="#content">{% if page_lang == "pl" %}Przejdź do treści{% else %}Skip to content{% endif %}</a>
 
     {% include header.html %}
 
@@ -12,12 +13,12 @@
 
       <div class="wrapper">
 
-        <div class="col-main">
+        <main id="content" class="col-main">
           {{ content }}
-        </div>
-        <div class="col-second">
+        </main>
+        <aside class="col-second">
           {% include sidebar.html %}
-        </div>
+        </aside>
 
       </div>
 

@@ -8,7 +8,7 @@
 		margin: 1em 0;
 		padding-bottom: 0.3em;
 		font-size: 1.17em;
-		border-bottom: 1px solid #CCC;
+		border-bottom: 1px solid $border-color;
 	}
 
 	.driver-hero {
@@ -91,7 +91,7 @@
 	.spec-table th {
 		background: #fff;
 		color: inherit;
-		border-color: #CCC;
+		border-color: $border-color;
 		font-weight: bold;
 		text-align: left;
 	}
@@ -162,7 +162,7 @@
 		font-size: $small-font-size;
 		line-height: 1.7;
 		white-space: nowrap;
-		border: 1px solid #ccc;
+		border: 1px solid $border-color;
 		border-radius: 1em;
 		background: #fff;
 

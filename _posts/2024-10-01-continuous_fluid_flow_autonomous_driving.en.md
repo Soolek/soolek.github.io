@@ -13,5 +13,5 @@ Autonomous Driving using Fluid Flow Simulation
 [Autonomous Driving using Fluid Flow Simulation on IEEE open access](https://ieeexplore.ieee.org/document/9740190)
 
 <div class="iframe-container">
-    <iframe src="https://www.youtube.com/embed/xGgcfZS4uHU?si=Mtu4u59T_vnJBVHT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/xGgcfZS4uHU?si=Mtu4u59T_vnJBVHT" title="Autonomous Driving using Fluid Flow Simulation (YouTube)" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>

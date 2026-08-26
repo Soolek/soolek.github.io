@@ -1,24 +1,36 @@
 ---
-title: Tomasz Sułkowski – software developer & drift racing driver
-layout: default
+title: Choose your language / Wybierz język
+layout: null
 ---
-
-<!-- JavaScript language detection -->
-<script>
-  (function () {
-    // Prefer the browser's language list; fall back to the legacy single value.
-    var langs = navigator.languages || [navigator.language || navigator.userLanguage || "en"];
-    var target = /^pl\b/i.test(langs[0]) ? "/pl/home/" : "/en/home/";
-    // replace() keeps this chooser page out of the history, so the Back button still works.
-    window.location.replace(target);
-  })();
-</script>
-
-<!-- Fallback -->
-<div class="language-selection">
-  <h1>Choose your language / Wybierz język:</h1>
-  <ul>
-    <li><a href="/en/home/" hreflang="en" lang="en">English</a></li>
-    <li><a href="/pl/home/" hreflang="pl" lang="pl">Polski</a></li>
-  </ul>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script>
+    (function () {
+      // Prefer the browser's language list; fall back to the legacy single value.
+      var langs = navigator.languages || [navigator.language || navigator.userLanguage || "en"];
+      var target = /^pl\b/i.test(langs[0]) ? "/pl/home/" : "/en/home/";
+      // replace() keeps this chooser page out of the history, so the Back button still works.
+      window.location.replace(target);
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title | escape }} « {{ site.title | escape }}</title>
+  {% seo title=false %}
+  <link rel="icon" href="{{ "/favicon.ico" | relative_url }}" sizes="any">
+  <link rel="stylesheet" href="{{ "/css/main.css" | relative_url }}">
+</head>
+<body>
+  {%- comment %} Shown only when JavaScript is off: no header/sidebar, so nothing is fetched before the redirect above fires. {% endcomment %}
+  <div class="page-content">
+    <div class="wrapper language-selection">
+      <h1>Choose your language / <span lang="pl">Wybierz język</span></h1>
+      <ul>
+        <li><a href="/en/home/" hreflang="en" lang="en">English</a></li>
+        <li><a href="/pl/home/" hreflang="pl" lang="pl">Polski</a></li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

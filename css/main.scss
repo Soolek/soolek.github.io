@@ -2,7 +2,7 @@
 # Only the main Sass file needs front matter (the dashes are enough)
 ---
 @charset "utf-8";
- 
+
 $base-font-family: "Open Sans", "Helvetica Neue", "DejaVu Sans", Arial, "PingFang SC", "Noto Sans CJK SC", "Hiragino Sans GB", "微软雅黑",  Helvetica, sans-serif;
 $display-font-family: "Bebas Neue", Impact, sans-serif;
 $base-font-size:   16px;
@@ -12,31 +12,40 @@ $base-line-height: 1.5;
 $code-font-family:   Menlo, Monaco, Consolas, Courier, monospace;
 $code-font-size:     15px;
 
-// Width of the content area
+// Width of the main column; with the 300px sidebar it fills the 1100px wrapper
 $content-width:    800px;
 
 $on-palm:          600px;
 $on-laptop:        800px;
+$on-desktop:       1120px;
 
 $color-link: #036;
 $color-link-hover: #069;
 
 $header-bg: #494949;
-$header-bg-hover: #595959;
-$header-link: #CFD8DC;
 $header-fg: #FFF;
+$header-link: #CFD8DC;
+$header-border: #719aa7;   // groove under the header
+$nav-link-border: #595959;
 
-@mixin media-query($device) {
-    @media screen and (max-width: $device) {
+$accent: #4bceff;          // nav link hover background
+$accent-glow: #ffeb08;     // nav link hover glow + border
+$border-color: #ccc;       // hairlines: borders, outlines, table rules
+
+// `$media` defaults to `screen`; pass `all` when the rule must also apply in print
+@mixin media-query($device, $media: screen) {
+    @media #{$media} and (max-width: $device) {
         @content;
     }
 }
 
-
-
-// Import partials from `sass_dir` (defaults to `_sass`)
+// Import partials from `sass_dir` (defaults to `_sass`).
+// Cascade order: base -> layout (incl. its breakpoint blocks) -> page partials -> highlighter.
 @import
         "base",
         "layout",
+        "post",
+        "home",
+        "driver",
         "syntax-highlighting"
 ;
