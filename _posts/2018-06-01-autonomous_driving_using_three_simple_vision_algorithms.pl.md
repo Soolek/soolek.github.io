@@ -5,6 +5,12 @@ date:   2018-06-01 17:00
 public: true
 categories: developer
 lang: pl
+image:
+  path: /assets/images/posts/autonomous_driving_using_three_simple_vision_algorithms/perspective1.jpg
+  width: 1280
+  height: 972
+twitter:
+  card: summary_large_image
 ---
 
 Celem tego wpisu jest zaznajomienie czytelnika z trzema prostymi algorytmami wizyjnymi dzięki którym można uzyskać prosty algorytm autonomicznego prowadzenia.
@@ -23,7 +29,7 @@ Pierwszym użytym algorytmem wizyjnym jest Perspektywa. Tworzy on widok z góry 
 
 Transformacja perspektywy jest transformacją w trzech wymiarach, w ten sposób że dolna część obrazu będzie oddalona a górna przybliżona.
 
-![Transformacja perspektywy (animacja)](/assets/images/posts/autonomous_driving_using_three_simple_vision_algorithms/perspective.gif)
+![Transformacja perspektywy (animacja)](/assets/images/posts/autonomous_driving_using_three_simple_vision_algorithms/perspective.webp)
 
 Taka transformacja może zostać stworzona manualnie, albo przy pomocy funkcji [FindHomography()](https://docs.opencv.org/3.4.1/d9/dab/tutorial_homography.html) z biblioteki opencv. Przy zastosowaniu drugiego podejścia, dolna część obrazu zostanie ściśnięta aby skontrować widok perspektywiczny projekcji świata trójwymiarowego na dwuwymiarowy ekran:
 
@@ -59,7 +65,7 @@ Ostatnim użytym algorytmem wizyjnym jest Przesuwane okno. Jego zadaniem jest ś
 
 Pierwszym krokiem w algorytmie Przesuwanego okna jest ustawienie okna poszukiwań (o konfigurowalnej wielkości) w miejscu gdzie krawędź drogi powinna być obecna: Przedni róg auta. Następnie okno poszukiwań jest przesuwane ku górze obrazu po najbardziej odznaczającej się krawędzi. Za każdym razem jak okno jest przesunięte ku górze (o jego wysokość), nowa pozycja w poziomie jest obliczona przy użyciu średniej ważonej wartościami pikseli: Im więcej pikseli (o większej wartości) jest znalezionych na danej pozycji poziomej w oknie poszukiwań, tym bardziej nowa pozycja okna poszukiwań będzie bliżej tej pozycji (w osi X). Te kroki są powtarzane aż okno poszukiwań wyjdzie poza granice obrazu.
 
-![Algorytm przesuwanego okna (animacja)](/assets/images/posts/autonomous_driving_using_three_simple_vision_algorithms/sliding_window.gif)
+![Algorytm przesuwanego okna (animacja)](/assets/images/posts/autonomous_driving_using_three_simple_vision_algorithms/sliding_window.webp)
 
 Po tym, jak lewa oraz prawa strona Przesuwanego okna dojdzie do końca granicy obrazu, dwie ścieżki reprezentujące krawędzie drogi zostały stworzone.
 

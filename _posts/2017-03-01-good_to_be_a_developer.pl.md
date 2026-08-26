@@ -5,6 +5,12 @@ date:   2017-03-01 17:00
 public: true
 categories: developer
 lang: pl
+image:
+  path: /assets/images/posts/AutoLineMarker_screenshot.jpg
+  width: 1920
+  height: 1200
+twitter:
+  card: summary_large_image
 ---
  
 W połowie lipca 2016 - konkretnie w piątek, kiedy jechałem na zawody driftingowe DriftOpen w Koszalinie, dostałem dziwny telefon od kolegi z ówczesnej pracy:
@@ -37,6 +43,6 @@ Ostatecznie podbudowany ilością ofert, dałem sobie 3 tygodnie na znalezienie 
 
 Pomimo, że zostałem zatrudniony jako .NET developer, szybko (praktycznie 3 dni od rozpoczęcia pracy) dostałem wyzwanie - napisać algorytm wizyjny do zaznaczania drogi i samochodów w C++. Wow - musiałem bardzo dużo się nauczyć w ekstremalnie krótkim czasie, ale to jest dokładnie to, co chciałem robić - podążać w kierunku autonomicznych samochodów, które są idealnym połączeniem moich dwóch pasji: programowania oraz kierowania.
 
-[![Zrzut ekranu AutoLineMarker](/assets/images/posts/AutoLineMarker_sreenshot_m.jpg)](/assets/images/posts/AutoLineMarker_sreenshot.jpg)
+[![Zrzut ekranu AutoLineMarker](/assets/images/posts/AutoLineMarker_screenshot_m.jpg)](/assets/images/posts/AutoLineMarker_screenshot.jpg)
 
 Dzięki mojej pasji sprawdziłem się znakomicie w tym zadaniu i mój program aktualnie jest wykorzystywany powszechnie do wspomagania oznaczania szczegółów na drodze.

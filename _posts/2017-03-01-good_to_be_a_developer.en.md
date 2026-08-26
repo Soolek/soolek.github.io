@@ -5,6 +5,12 @@ date:   2017-03-01 17:00
 public: true
 categories: developer
 lang: en
+image:
+  path: /assets/images/posts/AutoLineMarker_screenshot.jpg
+  width: 1920
+  height: 1200
+twitter:
+  card: summary_large_image
 ---
  
 In the middle July 2016 - on Friday, when I was on my way to 3rd round of DriftOpen championship, I received a very strange call from work colleague:
@@ -37,6 +43,6 @@ With the amount of job offers growing exponentially I decided to give myself 3 w
 
 I was employed mostly to get involved with .NET related projects, but quickly (about on my 3rd day) I was given a challenge: write a vision algorithm for marking road and cars in C++. Wow, that escalated quickly! I had to be extremely swift and learn quickly to come up with a viable solution, but this is what I always wanted to do - to get involved with autonomous cars. 
 
-[![AutoLineMarker screenshot](/assets/images/posts/AutoLineMarker_sreenshot_m.jpg)](/assets/images/posts/AutoLineMarker_sreenshot.jpg)
+[![AutoLineMarker screenshot](/assets/images/posts/AutoLineMarker_screenshot_m.jpg)](/assets/images/posts/AutoLineMarker_screenshot.jpg)
 
 Thanks to both of my passions I went beyond any expectations and my program is currently commonly used in the company to aid in labelling details of the road.

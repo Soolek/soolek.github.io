@@ -9,6 +9,7 @@ GitHub Pages uses its classic Jekyll builder (Jekyll 3.10, see <https://pages.gi
 **only the plugins on its whitelist**. `_config.yml` therefore lists just `jekyll-seo-tag` (meta description,
 canonical, Open Graph / Twitter cards, JSON-LD) and `jekyll-sitemap` (`sitemap.xml` + `robots.txt`). Anything else
 has to be plain Liquid, CSS or JavaScript – which is how the language switching and the photo gallery work.
+The site makes no third-party requests: the fonts (Bebas Neue, Open Sans – OFL) are self-hosted in `assets/fonts/`.
 
 ### Local build
 
@@ -31,9 +32,9 @@ Note that once a `Gemfile` exists Jekyll insists on bundler (set `JEKYLL_NO_BUND
 | What | How |
 | --- | --- |
 | Languages | Every page/post exists twice: `name.en.html` and `name.pl.html` (or `.md`), each with `lang: en` / `lang: pl` in its front matter. Pages use explicit `permalink: /en/…/` and `/pl/…/`; the header switcher finds the twin by swapping the language token in the file name (`_includes/alternate_page.html`). |
-| Navigation | A page appears in the top menu when it has `public: true`, `layout: default` and a `title`; `nav_title` is the short label shown in the menu. |
+| Navigation | A page appears in the top menu when it has `public: true`, `layout: default`, a `title` and the same `lang` as the page being viewed; `nav_title` is the short label shown in the menu. |
 | Posts | `_posts/YYYY-MM-DD-slug.<lang>.md`, `public: true` to list them (home page, sidebar, RSS). A draft gets `published: false` so it is not built at all. Post URLs are `/slug.<lang>` (kept for existing inbound links). |
-| SEO | `description:` (one sentence), optional `image:` (`path`, `width`, `height`) and `twitter: {card: …}` per page; defaults live in `_config.yml`. |
+| SEO | `description:` (one sentence), `image:` (`path`, `width`, `height` – the page's own photo, used as `og:image`) and `twitter: {card: …}` per page and post; defaults live in `_config.yml`. |
 | Dates | `{% include post_date.html date=post.date lang=post.lang %}` renders localised `<time>` elements. |
 
 ### Adding an event or a result
@@ -47,16 +48,17 @@ Edit the tables in both `_pages/driver.en.html` and `_pages/driver.pl.html`. Lin
 
 ### Adding gallery photos
 
-The gallery is folder-driven (`_includes/gallery.html`): every `*.jpg` in the folder becomes a tile, opened in a
-same-page lightbox ([GLightbox](https://github.com/biati-digital/glightbox) 3.3.1, MIT, vendored in
-`assets/vendor/glightbox/`). Three columns on desktop, two on phones.
+The gallery is folder-driven (`_includes/gallery.html`): every `*.jpg`, `*.jpeg` or `*.png` in the folder becomes a
+tile, opened in a same-page lightbox ([GLightbox](https://github.com/biati-digital/glightbox) 3.3.1, MIT, vendored
+in `assets/vendor/glightbox/` together with its `LICENSE`). Three columns on desktop, two on phones.
 
 1. Copy the photo(s) into `assets/images/driver/e46/` (files are sorted by name – use `01.jpg`, `02.jpg`, … if order matters).
-2. Generate the thumbnails (`<name>_t.jpg`, 600×400, needs Pillow: `pip install pillow`):
+2. Generate the thumbnails (`<name>_t.<ext>`, 600×400, needs Pillow ≥ 9.1: `pip install "pillow>=9.1"`):
    ```sh
    python3 scripts/make_thumbnails.py assets/images/driver/e46
    ```
-3. Optionally add a bilingual caption / alt text in `_data/galleries.yml` (photos without one get "BMW E46 drift car – photo N").
+3. Optionally add a bilingual caption / alt text in `_data/galleries.yml` (photos without one get "BMW E46 drift car – photo N" /
+   "Samochód driftingowy BMW E46 – zdjęcie N", built from the include's `alt`).
 4. Commit the photo, its thumbnail and the caption.
 
 A page that shows a gallery needs `gallery: true` in its front matter (loads the lightbox CSS/JS) and
@@ -70,9 +72,11 @@ _layouts/            default (header + sidebar + footer), post
 _includes/           head, header, sidebar, alternate_page, post_date, gallery
 _pages/              developer.*.html, driver.*.html
 home.*.html          language home pages; index.html redirects by browser language
+404.html, feed.xml   error page, RSS feed (both languages, each item carries xml:lang)
 _posts/              blog posts (per language)
 _data/galleries.yml  gallery captions
 _sass/, css/         styles (Sass, compiled by Jekyll)
-assets/              images, vendored JS/CSS
+assets/              images, self-hosted fonts (+ OFL), vendored JS/CSS (+ GLightbox LICENSE)
 scripts/             maintenance scripts (not published)
+CNAME, *.pdf         custom domain for GitHub Pages; the CV and the drift-taxi passenger form
 ```

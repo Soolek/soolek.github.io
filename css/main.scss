@@ -40,8 +40,9 @@ $border-color: #ccc;       // hairlines: borders, outlines, table rules
 }
 
 // Import partials from `sass_dir` (defaults to `_sass`).
-// Cascade order: base -> layout (incl. its breakpoint blocks) -> page partials -> highlighter.
+// Cascade order: fonts -> base -> layout (incl. its breakpoint blocks) -> page partials -> highlighter.
 @import
+        "fonts",
         "base",
         "layout",
         "post",

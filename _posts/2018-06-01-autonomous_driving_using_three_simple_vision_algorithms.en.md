@@ -5,6 +5,12 @@ date:   2018-06-01 17:00
 public: true
 categories: developer
 lang: en
+image:
+  path: /assets/images/posts/autonomous_driving_using_three_simple_vision_algorithms/perspective1.jpg
+  width: 1280
+  height: 972
+twitter:
+  card: summary_large_image
 ---
 
 The purpose of this post is to familiarize the reader with three vision algorithms used for a simple autonomous driving algorithm.
@@ -23,7 +29,7 @@ First algorithm used in the workflow is perspective transformation. It creates a
 
 The perspective transformation is a 3D transformation of the view pane, such that lower parts of the image will be put farther from observer point of view, while the upper parts will be closer.
 
-![Perspective transformation (animation)](/assets/images/posts/autonomous_driving_using_three_simple_vision_algorithms/perspective.gif)
+![Perspective transformation (animation)](/assets/images/posts/autonomous_driving_using_three_simple_vision_algorithms/perspective.webp)
 
 Such transformation can be achieved by creating transformation matrix manually or use [FindHomography()](https://docs.opencv.org/3.4.1/d9/dab/tutorial_homography.html) function from the OpenCV library. Using the second approach, the lower part of input image needs to be squeezed to counter the perspective projection of 3D world to 2D pane viewed from driver point of view:
 
@@ -59,7 +65,7 @@ The last vision algorithm used in the workflow is Sliding window algorithm. Its 
 
 Starting point of the Sliding window algorithm is placing a search window (of preconfigured size) in place where a lane should be present: the front end corner of the car. Next, the window is slid upwards along the most distinguishable edge. Every time the window is moved upwards (by its height size) from its last position, a new horizontal position is calculated by weighted average on x-axis: the more pixels (with bigger values) are found on horizontal position inside the window, the more windows new position will be close to this position (in x-axis). Repeat this until the search window goes out of bounds of the image.
 
-![Sliding window algorithm (animation)](/assets/images/posts/autonomous_driving_using_three_simple_vision_algorithms/sliding_window.gif)
+![Sliding window algorithm (animation)](/assets/images/posts/autonomous_driving_using_three_simple_vision_algorithms/sliding_window.webp)
 
 After both left and right sliding windows have been moved to the upper boundaries of the input image, two paths have been created which should represent the road edges.
 
