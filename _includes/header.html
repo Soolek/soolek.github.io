@@ -12,7 +12,27 @@
 		{% endfor %}
 		{% for lang in site.languages %}
 			{% if page.lang != lang %}
-			  <a href="{{ site.baseurl }}/{{ lang }}/home" class="{{ lang }} inactive"></a>
+				{% comment %} Same page in the other language: swap the language token in the source path,
+				   e.g. _pages/driver.pl.html -> _pages/driver.en.html, then look it up. {% endcomment %}
+				{% assign alt_url = nil %}
+				{% if page.lang %}
+					{% assign from_token = "." | append: page.lang | append: "." %}
+					{% assign to_token = "." | append: lang | append: "." %}
+					{% assign alt_path = page.path | replace: from_token, to_token %}
+					{% comment %} Posts first: `include: [_posts]` in _config.yml also exposes post files as plain
+					   pages (with a bogus /_posts/... url), so site.posts must win for them. {% endcomment %}
+					{% assign alt_page = site.posts | where: "path", alt_path | first %}
+					{% unless alt_page %}
+						{% assign alt_page = site.pages | where: "path", alt_path | first %}
+					{% endunless %}
+					{% if alt_page and alt_page.lang == lang %}
+						{% assign alt_url = alt_page.url %}
+					{% endif %}
+				{% endif %}
+				{% unless alt_url %}
+					{% assign alt_url = "/" | append: lang | append: "/home/" %}
+				{% endunless %}
+			  <a href="{{ alt_url | prepend: site.baseurl }}" class="{{ lang }} inactive"></a>
 			{% endif %}
 		{% endfor %}
 	</div>
