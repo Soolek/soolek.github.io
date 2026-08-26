@@ -1,0 +1,21 @@
+{%- comment -%}
+  Sets `alt_page_url` to the URL of the current page's counterpart in language `include.lang`,
+  or nil when there is none. The counterpart is found by swapping the language token in the
+  source path, e.g. _pages/driver.pl.html -> _pages/driver.en.html, and looking it up.
+  Usage: {% include alternate_page.html lang=lang %} ... {% if alt_page_url %}...{% endif %}
+{%- endcomment -%}
+{%- assign alt_page_url = nil -%}
+{%- if page.lang and include.lang != page.lang -%}
+  {%- assign from_token = "." | append: page.lang | append: "." -%}
+  {%- assign to_token = "." | append: include.lang | append: "." -%}
+  {%- assign alt_path = page.path | replace: from_token, to_token -%}
+  {%- comment -%} Posts first: `include: [_posts]` in _config.yml also exposes post files as plain
+     pages (with a bogus /_posts/... url), so site.posts must win for them. {%- endcomment -%}
+  {%- assign alt_page = site.posts | where: "path", alt_path | first -%}
+  {%- unless alt_page -%}
+    {%- assign alt_page = site.pages | where: "path", alt_path | first -%}
+  {%- endunless -%}
+  {%- if alt_page and alt_page.lang == include.lang -%}
+    {%- assign alt_page_url = alt_page.url -%}
+  {%- endif -%}
+{%- endif -%}

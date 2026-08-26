@@ -1,6 +1,6 @@
 # Site settings
 title: CodeAndDrive.com
-url: "http://www.CodeAndDrive.com"    # the protocol and hostname of your site, eg. `http://laobubu.github.io`
+url: "https://codeanddrive.com"    # the protocol and hostname of your site, eg. `http://laobubu.github.io`
 baseurl: "" # the prefix of your site uri, eg. `/jekyll-theme-EasyBook` or just one slash `/`
 timezone: Europe/Warsaw
 encoding: UTF-8
@@ -40,4 +40,7 @@ paginate_path: "page:num"
 
 # jekyll-multiple-languages-plugin settings:
 languages: ["en", "pl"]
+language_names:
+  en: English
+  pl: Polski
 exclude_from_localizations: ["assets", "images", "css", "js"]

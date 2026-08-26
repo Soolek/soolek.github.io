@@ -10,5 +10,22 @@
   <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl | bust_file_cache }}">
   <link rel='stylesheet' id='kadence-fonts-gfonts-css' href='https://fonts.googleapis.com/css?family=Poppins:regular,700%7CBebas%20Neue:regular&#038;display=swap' media='all' />
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+  {%- comment %} hreflang alternates: emitted only for pages that have a counterpart in another language. {% endcomment %}
+  {%- if page.lang %}
+    {%- capture hreflang_links %}
+      {%- for lang in site.languages %}
+        {%- if lang != page.lang %}
+          {%- include alternate_page.html lang=lang %}
+          {%- if alt_page_url %}
+  <link rel="alternate" hreflang="{{ lang }}" href="{{ alt_page_url | prepend: site.baseurl | prepend: site.url }}">
+          {%- endif %}
+        {%- endif %}
+      {%- endfor %}
+    {%- endcapture %}
+    {%- if hreflang_links contains "<link" %}
+  <link rel="alternate" hreflang="{{ page.lang }}" href="{{ page.url | prepend: site.baseurl | prepend: site.url }}">
+  {{- hreflang_links }}
+    {%- endif %}
+  {%- endif %}
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
 </head>
