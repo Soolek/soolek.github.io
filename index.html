@@ -1,34 +1,24 @@
 ---
-title: Home
+title: Tomasz Sułkowski – software developer & drift racing driver
 layout: default
 ---
 
 <!-- JavaScript language detection -->
-<script language="javascript">
-    // Get the browser language
-    var userLang = navigator.language || navigator.userLanguage;
-    
-    // Check if language starts with 'pl' (Polish)
-    if (userLang.toLowerCase().startsWith('pl')) {
-        window.location.href = "/pl/home";
-    } else {
-        // Default to English for all other languages
-        window.location.href = "/en/home";
-    }
+<script>
+  (function () {
+    // Prefer the browser's language list; fall back to the legacy single value.
+    var langs = navigator.languages || [navigator.language || navigator.userLanguage || "en"];
+    var target = /^pl\b/i.test(langs[0]) ? "/pl/home/" : "/en/home/";
+    // replace() keeps this chooser page out of the history, so the Back button still works.
+    window.location.replace(target);
+  })();
 </script>
 
 <!-- Fallback -->
 <div class="language-selection">
-    <h1>Choose your language / Wybierz język:</h1>
-    <ul>
-        <li><a href="/en/home">English</a></li>
-        <li><a href="/pl/home">Polski</a></li>
-    </ul>
+  <h1>Choose your language / Wybierz język:</h1>
+  <ul>
+    <li><a href="/en/home/" hreflang="en" lang="en">English</a></li>
+    <li><a href="/pl/home/" hreflang="pl" lang="pl">Polski</a></li>
+  </ul>
 </div>
-
-{% case page.lang %}
-  {% when "pl" %}
-    {% include_relative home.pl.html %}
-  {% else %}
-    {% include_relative home.en.html %}
-{% endcase %}

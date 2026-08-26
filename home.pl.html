@@ -1,41 +1,41 @@
 ---
-title: Home
+title: Tomasz Sułkowski – programista i kierowca driftingowy
 layout: default
 permalink: /pl/home/
 lang: pl
-subset: home
+description: "Tomasz Sułkowski – programista .NET i kierowca driftingowy. Kod, samochody i blog o autonomicznym prowadzeniu."
 ---
- 
+
 <div class="home">
-  <h2 class="page-heading">Kodowanie oraz Prowadzenie</h1>
+  <h1 class="page-heading">Kodowanie oraz Prowadzenie</h1>
 
   <p>Witaj w moim świecie innowacji i adrenaliny, gdzie precyzja kodu łączy emocje toru wyścigowego. Przez ponad dwie dekady pracy jako programista nauczyłem się tworzyć solidne i skalowalne systemy, wykorzystując ekosystem .NET, architektury mikroserwisowe oraz nowoczesne techniki integracyjne. Każda linia kodu powstaje z tą samą precyzją i pasją, która towarzyszy mi również na torze.</p>
-  <p>Od pierwszych kroków w programowaniu na 8bitowym Atari, aż po prowadzenie komercyjnych projektów, zawsze fascynowało mnie przekształcanie złożonych problemów w eleganckie oraz efektywne rozwiązania. Ta chęć innowacji znalazła odzwierciedlenie w moim analitycznym podejściu do sportów motorowych, gdzie pasja do wyczynowej jazdy napędza pogoń za celem.</p>
-  <p>Jako entuzjasta wyścigów i driftu, od zawsze zgłębiam sztukę kontroli nad samochodem. Moja przygoda rozpoczęła się amatorskimi rajdami w tylnionapędowej Ładzie, po których moja rywalizacja i ciężka praca szybko przerodziły się w sukcesy – od mistrzostw regionalnych po uznane zawody driftowe w całym kraju. Ta sama determinacja, elastyczność i nieustanne dążenie do doskonałości, które kształtują moją karierę programisty, przekładają się również na moje osiągnięcia za kierownicą.</p>
-  <p>W świecie, w którym precyzja ma najwyższe znaczenie, łączę innowacyjne rozwiązania programistyczne z dynamicznymi osiągnięciami sportów motorowych. Niezależnie od tego, czy buduję zaawansowane architektury zaplecza systemu, czy doskonalę perfekcyjny technikę jazdy, wierzę, że strategiczna wizja, przemyślane ryzyko i ciągła nauka są kluczem do sukcesu.</p>
+  <p>Od pierwszych kroków w programowaniu na 8-bitowym Atari, aż po prowadzenie komercyjnych projektów, zawsze fascynowało mnie przekształcanie złożonych problemów w eleganckie oraz efektywne rozwiązania. Ta chęć innowacji znalazła odzwierciedlenie w moim analitycznym podejściu do sportów motorowych, gdzie pasja do wyczynowej jazdy napędza pogoń za celem.</p>
+  <p>Jako entuzjasta wyścigów i driftu, od zawsze zgłębiam sztukę kontroli nad samochodem. Moja przygoda rozpoczęła się amatorskimi rajdami w tylnonapędowej Ładzie, po których moja rywalizacja i ciężka praca szybko przerodziły się w sukcesy – od mistrzostw regionalnych po uznane zawody driftowe w całym kraju. Ta sama determinacja, elastyczność i nieustanne dążenie do doskonałości, które kształtują moją karierę programisty, przekładają się również na moje osiągnięcia za kierownicą.</p>
+  <p>W świecie, w którym precyzja ma najwyższe znaczenie, łączę innowacyjne rozwiązania programistyczne z dynamicznymi osiągnięciami sportów motorowych. Niezależnie od tego, czy buduję zaawansowane architektury zaplecza systemu, czy doskonalę perfekcyjną technikę jazdy, wierzę, że strategiczna wizja, przemyślane ryzyko i ciągła nauka są kluczem do sukcesu.</p>
 
   <br>
   <hr>
-  
-  <ul class="post-list">
-    {% for post in site.posts %}
-		{% if post.lang == page.lang and post.public %}
-		  <li>
-			<h2>
-			  <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-			</h2>
-			
-			<div class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</div>
 
-			<div class="post-excerpt">
-			  {{ post.excerpt }}
-			  <p>
-				<a class="post-link" href="{{ post.url | prepend: site.baseurl }}">Więcej &raquo;</a>
-			  </p>
-			</div>
-		  </li>
-		{% endif %}
-    {% endfor %}
+  <ul class="post-list">
+    {%- for post in site.posts %}
+      {%- if post.lang == page.lang and post.public %}
+    <li>
+      <h2>
+        <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      </h2>
+
+      <div class="post-meta">{% include post_date.html date=post.date lang=post.lang %}</div>
+
+      <div class="post-excerpt">
+        {{ post.excerpt }}
+        <p>
+          <a class="post-link" href="{{ post.url | relative_url }}">Więcej &raquo;</a>
+        </p>
+      </div>
+    </li>
+      {%- endif %}
+    {%- endfor %}
   </ul>
 
 </div>

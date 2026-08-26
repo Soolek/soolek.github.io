@@ -3,6 +3,7 @@ layout: post
 title:  "Autonomous Driving using Fluid Flow Simulation"
 date:   2024-10-01 17:00
 public: false
+published: false   # draft: not built at all (preview with `jekyll build --unpublished`)
 categories: developer
 lang: en
 ---

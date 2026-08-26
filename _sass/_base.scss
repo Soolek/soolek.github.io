@@ -1,16 +1,24 @@
 body {
 	margin: 0;
+	min-height: 100vh;
 	font-family: $base-font-family;
 	font-size: $base-font-size;
 	line-height: $base-line-height;
 }
 a { 
 	text-decoration: none;
-	color: #036;
+	color: $color-link;
 }
 a:hover, a:focus {
 	text-decoration:underline;
-	color: #069;
+	color: $color-link-hover;
+}
+img {
+	max-width: 100%;
+	height: auto;
+}
+iframe {
+	border: 0;
 }
 blockquote {
 	background: #FFF;
@@ -49,12 +57,16 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
     margin: 10pt auto;
+	max-width: 100%;
 	background: #FFF;
 
 	td, th {
 		border: 1px solid #CCC;
 		padding: 5px 15px;
 		margin: 0;
+	}
+	td {
+		overflow-wrap: anywhere;   // long words/links wrap instead of overflowing on phones
 	}
 	
 	th {

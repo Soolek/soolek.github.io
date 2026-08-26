@@ -1,39 +1,39 @@
 <header class="header">
   <div class="wrapper">
     <!-- <a class="site-title" href="/index.html">{{ site.title }}</a> -->
-	<a class="site-title" href="{% if page.lang %}{{ site.baseurl }}/{{ page.lang }}/home/{% else %}/index.html{% endif %}">
-		<img class="logo" src="/assets/images/codeanddrive_glitch_174x55.png" alt="{{ site.title }}"/>
-	</a>
-	<div class="site-languages">
-		{% for lang in site.languages %}
-			{% assign lang_name = site.language_names[lang] | default: lang %}
-			{% if page.lang == lang %}
-			  <span class="{{ lang }} active" role="img" title="{{ lang_name }}" aria-label="{{ lang_name }}"></span>
-			{% endif %}
-		{% endfor %}
-		{% for lang in site.languages %}
-			{% assign lang_name = site.language_names[lang] | default: lang %}
-			{% if page.lang != lang %}
-				{% comment %} Same page in the other language (see _includes/alternate_page.html); falls back to that language's home. {% endcomment %}
-				{% include alternate_page.html lang=lang %}
-				{% unless alt_page_url %}
-					{% assign alt_page_url = "/" | append: lang | append: "/home/" %}
-				{% endunless %}
-			  <a href="{{ alt_page_url | prepend: site.baseurl }}" class="{{ lang }} inactive" hreflang="{{ lang }}" title="{{ lang_name }}" aria-label="{{ lang_name }}"></a>
-			{% endif %}
-		{% endfor %}
-	</div>
-    <nav class="site-nav">
-      {% for sitepage in site.pages %}
-        {% if sitepage.title and sitepage.public and sitepage.lang == page.lang and sitepage.layout == "default" %}
-        <a class="page-link" href="{{ sitepage.url | prepend: site.baseurl }}">{{ sitepage.title }}</a>
-        {% endif %}
-      {% endfor %}
+    <a class="site-title" href="{{ "/" | append: page_lang | append: "/home/" | relative_url }}">
+      <img class="logo" src="{{ "/assets/images/codeanddrive_glitch_174x55.png" | relative_url }}" width="174" height="55" alt="{{ site.title }}">
+    </a>
+    <nav class="site-nav" aria-label="{% if page_lang == "pl" %}Menu główne{% else %}Main menu{% endif %}">
+      {%- for sitepage in site.pages %}
+        {%- if sitepage.title and sitepage.public and sitepage.lang == page_lang and sitepage.layout == "default" %}
+      <a class="page-link" href="{{ sitepage.url | relative_url }}">{{ sitepage.nav_title | default: sitepage.title }}</a>
+        {%- endif %}
+      {%- endfor %}
     </nav>
+    <div class="site-languages">
+      {%- for lang in site.languages %}
+        {%- assign lang_name = site.language_names[lang] | default: lang %}
+        {%- if page_lang == lang %}
+      <span class="{{ lang }} active" role="img" title="{{ lang_name }}" aria-label="{{ lang_name }}"></span>
+        {%- endif %}
+      {%- endfor %}
+      {%- for lang in site.languages %}
+        {%- assign lang_name = site.language_names[lang] | default: lang %}
+        {%- if page_lang != lang %}
+          {% comment %} Same page in the other language (see _includes/alternate_page.html); falls back to that language's home. {% endcomment %}
+          {%- include alternate_page.html lang=lang %}
+          {%- unless alt_page_url %}
+            {%- assign alt_page_url = "/" | append: lang | append: "/home/" %}
+          {%- endunless %}
+      <a href="{{ alt_page_url | relative_url }}" class="{{ lang }} inactive" hreflang="{{ lang }}" title="{{ lang_name }}" aria-label="{{ lang_name }}"></a>
+        {%- endif %}
+      {%- endfor %}
+    </div>
   </div>
 </header>
 
 <div class="sub-header">
-	<div class="wrapper">
-	</div>
+  <div class="wrapper">
+  </div>
 </div>

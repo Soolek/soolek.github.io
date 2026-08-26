@@ -1,41 +1,41 @@
 ---
-title: Home
+title: Tomasz Sułkowski – software developer & drift racing driver
 layout: default
 permalink: /en/home/
 lang: en
-subset: home
+description: "Tomasz Sułkowski – .NET software developer and drift racing driver from Poland. Code, cars and a blog on autonomous driving."
 ---
- 
+
 <div class="home">
-  <h2 class="page-heading">Code and Drive</h2>
+  <h1 class="page-heading">Code and Drive</h1>
 
   <p>Welcome to My Dual World of Innovation and Adrenaline, where the precision of code meets the thrill of the race track. Over two decades as a software developer have taught me how to architect robust, scalable systems using the .NET ecosystem, microservice architectures, and modern integration techniques. Every line of code is crafted with the same precision and passion that guides me on the driving circuit.</p>
-  <p>From my early days fueling an interest in programming on the 8bit Atari to leading commercial software projects, I’ve always been captivated by the challenge of transforming complex problems into efficient, elegant solutions. This drive for innovation is mirrored in my analytical approach to motorsports, where an unyielding passion for high-performance driving fuels my pursuits.</p>
-  <p>As a racing and drifting enthusiast, I’ve immersed myself in the art of car control since my first amateur rally with a low powered rear-wheel-drive car. My passion evolved into a competitive spirit—propelling me to win regional championships and excel in drifting competitions across Poland. The same focus, adaptability, and relentless pursuit of excellence that define my programming career also power my approach behind the wheel.</p>
-  <p>In a world where precision matters, I bridge the gap between innovative software solutions and dynamic motorsport performance. Whether it’s building cutting-edge backend architectures or mastering the perfect drift, I believe that strategic vision, calculated risk, and continuous learning drive excellence.</p>	
+  <p>From my early days fueling an interest in programming on the 8-bit Atari to leading commercial software projects, I’ve always been captivated by the challenge of transforming complex problems into efficient, elegant solutions. This drive for innovation is mirrored in my analytical approach to motorsports, where an unyielding passion for high-performance driving fuels my pursuits.</p>
+  <p>As a racing and drifting enthusiast, I’ve immersed myself in the art of car control since my first amateur rally with a low-powered rear-wheel-drive car. My passion evolved into a competitive spirit—propelling me to win regional championships and excel in drifting competitions across Poland. The same focus, adaptability, and relentless pursuit of excellence that define my programming career also power my approach behind the wheel.</p>
+  <p>In a world where precision matters, I bridge the gap between innovative software solutions and dynamic motorsport performance. Whether it’s building cutting-edge backend architectures or mastering the perfect drift, I believe that strategic vision, calculated risk, and continuous learning drive excellence.</p>
 
   <br>
   <hr>
-	
-  <ul class="post-list">
-    {% for post in site.posts %}
-		{% if post.lang == page.lang and post.public %}
-		  <li>
-			<h2>
-			  <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-			</h2>
-			
-			<div class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</div>
 
-			<div class="post-excerpt">
-			  {{ post.excerpt }}
-			  <p>
-				<a class="post-link" href="{{ post.url | prepend: site.baseurl }}">Read More &raquo;</a>
-			  </p>
-			</div>
-		  </li>
-		{% endif %}
-    {% endfor %}
+  <ul class="post-list">
+    {%- for post in site.posts %}
+      {%- if post.lang == page.lang and post.public %}
+    <li>
+      <h2>
+        <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      </h2>
+
+      <div class="post-meta">{% include post_date.html date=post.date lang=post.lang %}</div>
+
+      <div class="post-excerpt">
+        {{ post.excerpt }}
+        <p>
+          <a class="post-link" href="{{ post.url | relative_url }}">Read More &raquo;</a>
+        </p>
+      </div>
+    </li>
+      {%- endif %}
+    {%- endfor %}
   </ul>
 
 </div>

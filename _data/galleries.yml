@@ -1,0 +1,18 @@
+# Captions / alt texts for the folder-driven galleries (_includes/gallery.html).
+# gallery name -> file name -> language. Photos without an entry get a generic "<alt> – photo N".
+e46:
+  "1.jpg":
+    en: "Blue and black BMW E46 drift car with yellow wheels sliding in front of the spectators"
+    pl: "Niebiesko-czarne BMW E46 z żółtymi felgami w poślizgu przed publicznością"
+  "2.jpg":
+    en: "Rear view of the BMW E46 in a cloud of tyre smoke"
+    pl: "BMW E46 od tyłu w chmurze dymu z opon"
+  "3.jpg":
+    en: "BMW E46 drifting in tandem with a white BMW E36"
+    pl: "BMW E46 w tandemie z białym BMW E36"
+  "4.jpg":
+    en: "BMW E46 drifting past the crowd with the front wheels at full lock"
+    pl: "BMW E46 w poślizgu przy pełnym skręcie kół obok tłumu widzów"
+  "5.jpg":
+    en: "BMW E46 under the blue TommyDrifting paddock tent"
+    pl: "BMW E46 pod niebieskim namiotem serwisowym TommyDrifting"

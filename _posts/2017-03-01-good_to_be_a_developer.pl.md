@@ -21,7 +21,7 @@ Miałem już zawracać, bo budżet na starty dopinałem na ostatni guzik. Wpisow
 
 Na moje szczęście jestem programistą. Informacja o upadku firmy szybko dotarła do headhunterów i zanim się spostrzegłem, już w niedzielę moja skrzynka pocztowa wyglądała następująco:
 
-![](/assets/images/posts/work_offers.png)
+![Skrzynka pełna ofert pracy](/assets/images/posts/work_offers.png)
 
 ...a ja ciągle nie mogłem uwierzyć jak szybko tak ważne sprawy mogły się potoczyć.
 
@@ -29,14 +29,14 @@ Warto być programistą w dzisiejszych czasach - zachęcam do tego każdego, kto
 
 > Bezrobocie to było najgorsze 37 minut mojego życia
 
-## Niema tego złego...
+## Nie ma tego złego...
 
 Ostatecznie podbudowany ilością ofert, dałem sobie 3 tygodnie na znalezienie pracy z której byłbym zadowolony. Była to najlepsza decyzja w moim życiu. Otóż, okazało się, że nie tylko będę w stanie znaleźć ciekawą pracę, ale także taką w której będę mógł spełniać swoją pasję obcowania z samochodami - [Delphi w Krakowie](http://www.delphikrakow.pl), gdzie miałem nadzieję pracować przy autonomicznych samochodach:
 
-[![](/assets/images/youtube.png){: .yt-image-logo}![](http://img.youtube.com/vi/meTZKZp5QDY/0.jpg){: .yt-image}](http://www.youtube.com/watch?v=meTZKZp5QDY)
+[![YouTube](/assets/images/youtube.png){: .yt-image-logo}![Autonomiczny samochód Delphi – miniatura wideo](https://img.youtube.com/vi/meTZKZp5QDY/0.jpg){: .yt-image}](https://www.youtube.com/watch?v=meTZKZp5QDY)
 
 Pomimo, że zostałem zatrudniony jako .NET developer, szybko (praktycznie 3 dni od rozpoczęcia pracy) dostałem wyzwanie - napisać algorytm wizyjny do zaznaczania drogi i samochodów w C++. Wow - musiałem bardzo dużo się nauczyć w ekstremalnie krótkim czasie, ale to jest dokładnie to, co chciałem robić - podążać w kierunku autonomicznych samochodów, które są idealnym połączeniem moich dwóch pasji: programowania oraz kierowania.
 
-[![](/assets/images/posts/AutoLineMarker_sreenshot_m.jpg)](/assets/images/posts/AutoLineMarker_sreenshot.jpg)
+[![Zrzut ekranu AutoLineMarker](/assets/images/posts/AutoLineMarker_sreenshot_m.jpg)](/assets/images/posts/AutoLineMarker_sreenshot.jpg)
 
 Dzięki mojej pasji sprawdziłem się znakomicie w tym zadaniu i mój program aktualnie jest wykorzystywany powszechnie do wspomagania oznaczania szczegółów na drodze.

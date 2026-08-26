@@ -10,37 +10,35 @@
 } 
 
 .header {
-	line-height: $base-font-size * 2;
 	background-color: $header-bg;
-	padding: 10px;
+	padding: 4px 10px;
 	margin: 0;
 	border-bottom: 3px groove #719aa7;
-	
-	&:after {
-		clear: both;
-		content: ' ';
-		display: block;
+
+	.wrapper {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 5px 15px;
 	}
-	
+
 	.site-title {
-		float: left;
+		display: flex;
+		align-items: center;
 		color: $header-fg;
 		text-decoration: none;
 		font-size: $base-font-size;
-		line-height: $base-font-size * 2;
-		overflow: visible;
-		align-items: center;
 
 		.logo {
-			position: absolute;
-			top: 0;
-			left:0;
+			display: block;
+			width: 174px;
 			height: 55px;
 		}
 	}
 	.site-languages {
-		float: right;
-		height: 24px;
+		display: flex;
+		align-items: center;
+		gap: 6px;
 			
 		.pl {
 			display: inline-block;
@@ -67,7 +65,12 @@
 		}
 	}
 	.site-nav {
-		text-align:right;
+		margin-left: auto;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-end;
+		gap: 5px;
+		line-height: $base-font-size * 2;
 		
 		// a {
 		// 	text-decoration: none;
@@ -81,10 +84,8 @@
 		// }
 
 		a {
-			position: relative;
 			display: inline-block;
 			padding: 0 5px;
-			margin-right: 5px;
 			color: $header-link;
 			// background-color: #00489b;
 			text-decoration: none;
@@ -106,20 +107,10 @@
 .sub-header {
 	height: 60px;
 	padding: 5px;
-	background: -webkit-linear-gradient(top, rgba(250, 250, 250, 1), rgba(250, 250, 250, 0));
-	background: -moz-linear-gradient(top, rgba(250, 250, 250, 1), rgba(250, 250, 250, 0));
-	background: -webkit-linear-gradient(top, rgba(250, 250, 250, 1), rgba(250, 250, 250, 0));
-	background: -o-linear-gradient(top, rgba(250, 250, 250, 1), rgba(250, 250, 250, 0));
-	background: -ms-linear-gradient(top, rgba(250, 250, 250, 1), rgba(250, 250, 250, 0));
-	background: linear-gradient(top, rgba(250, 250, 250, 1), rgba(250, 250, 250, 0));
+	background: linear-gradient(to bottom, rgba(250, 250, 250, 1), rgba(250, 250, 250, 0));
 }
 
 body {
-	background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(30%, rgba(0, 0, 0, 0.35)), color-stop(100%, rgba(0, 0, 0, 0.65))), url('/assets/images/carbon_bg.jpg') repeat;
-	background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.35) 30%, rgba(0, 0, 0, 0.65) 100%), url('/assets/images/carbon_bg.jpg') repeat;
-	background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.35) 30%, rgba(0, 0, 0, 0.65) 100%), url('/assets/images/carbon_bg.jpg') repeat;
-	background: -o-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.35) 30%, rgba(0, 0, 0, 0.65) 100%), url('/assets/images/carbon_bg.jpg') repeat;
-	background: -ms-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.35) 30%, rgba(0, 0, 0, 0.65) 100%), url('/assets/images/carbon_bg.jpg') repeat;
 	background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.35) 30%, rgba(0, 0, 0, 0.65) 100%), url('/assets/images/carbon_bg.jpg') repeat;
 	background-attachment: fixed;
 }
@@ -141,6 +132,32 @@ body {
 	
 	img {
 		max-width:100%;
+		height: auto;
+	}
+}
+
+.page-heading {
+	font-size: 40px;
+	font-weight: normal;
+	margin: 20px;
+	@include media-query($on-palm) {
+		margin: 10px;
+		font-size: 34px;
+	}
+}
+
+// Language chooser shown on / when JavaScript is off (index.html)
+.language-selection {
+	text-align: center;
+	padding: 40px 20px;
+
+	ul {
+		list-style: none;
+		padding: 0;
+		font-size: 1.5em;
+	}
+	li {
+		margin: 0.5em 0;
 	}
 }
 
@@ -224,24 +241,36 @@ body {
 	}
 }
 
-	.contact-button {
-		margin-top: 10px;
-		a {
-			background: #999;
-			color: #eee;
-			padding: 5px 10px;
-			text-decoration: none;
-			border-radius: 5px;
-    		white-space: nowrap;
-			
-			&:hover {
-				transition: background 0.3s ease;
-				background: #666;
-			}
+.contact-button {
+	margin-top: 10px;
+	a {
+		background: #999;
+		color: #eee;
+		padding: 5px 10px;
+		text-decoration: none;
+		border-radius: 5px;
+		white-space: nowrap;
+		
+		&:hover {
+			transition: background 0.3s ease;
+			background: #666;
 		}
 	}
+}
 
-@import "post", "home";
+.footer {
+	color: #ccc;
+	font-size: $small-font-size;
+	text-align: center;
+	padding: 10px 0 30px;
+
+	a {
+		color: #fff;
+		margin-left: 1em;
+	}
+}
+
+@import "post", "home", "driver";
 
 @include media-query($on-laptop) {
 	.page-content {
@@ -253,11 +282,14 @@ body {
 }
 @include media-query($on-palm) {
 	.header {
-		&, .site-nav{
-			text-align:right;
+		// row 1: logo ........ flags, row 2: nav buttons (right-aligned)
+		.site-languages {
+			margin-left: auto;
 		}
-		.site-title {
-			float: none;
+		.site-nav {
+			order: 3;
+			flex-basis: 100%;
+			margin-left: 0;
 		}
 	}
 	.col-main {
@@ -270,5 +302,16 @@ body {
 	}
 	pre {
 		padding: 10px;
+	}
+	table td, table th {
+		padding: 5px 8px;
+	}
+	.left-image, .right-image {
+		float: none;
+		display: block;
+		margin: 0 auto 10px;
+	}
+	.post .post-content .iframe-container {
+		width: 100%;
 	}
 }

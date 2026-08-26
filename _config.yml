@@ -4,17 +4,34 @@ url: "https://codeanddrive.com"    # the protocol and hostname of your site, eg.
 baseurl: "" # the prefix of your site uri, eg. `/jekyll-theme-EasyBook` or just one slash `/`
 timezone: Europe/Warsaw
 encoding: UTF-8
+lang: en   # default for pages without `lang:` front matter (<html lang>, jekyll-seo-tag, template fallbacks)
 description: Tomasz Sułkowski - Software developer, Drift racing driver
- 
+logo: /assets/images/codeanddrive_glitch_174x55.png   # jekyll-seo-tag: publisher logo in JSON-LD
+
 # Your information
 email: tomasz_sulkowski@wp.pl
 author: Tomasz Sułkowski
 avatar: "/assets/images/avatar.jpg"
 profile: Software developer, Drift racing driver
+profile_pl: Programista, kierowca driftingowy
 #twitter_username: twitter_username
 #github_username:  github_username
 
-include: ["assets", "_pages", "_posts"]
+# Social profiles - jekyll-seo-tag emits them as JSON-LD `sameAs` links
+social:
+  name: Tomasz Sułkowski
+  links:
+    - https://www.instagram.com/tommydrifting/
+    - https://www.facebook.com/TommyDrifting
+    - https://www.youtube.com/@TommyDrifting
+    - https://github.com/Soolek
+    - https://www.linkedin.com/in/tomaszsulkowski
+
+# `_pages` is an underscore directory, so it has to be listed here to be built.
+# `_posts` is read natively as a collection - listing it here would publish every post a second time under /_posts/.
+include: ["_pages"]
+# `exclude` replaces Jekyll's default list, so bundler files are listed explicitly.
+exclude: ["LICENSE", "README.md", "Gemfile", "Gemfile.lock", "vendor", "node_modules", "scripts"]
 
 highlighter: rouge
 markdown: kramdown
@@ -25,14 +42,37 @@ kramdown:
 
 permalink: /:title
 
-# Plugins
+# Plugins - the site is built by GitHub Pages, which only runs its whitelisted plugins
+# (https://pages.github.com/versions/). Both of these are on the list.
 plugins:
- - jekyll-multiple-languages-plugin
- - jekyll-cache-bust
+  - jekyll-seo-tag
+  - jekyll-sitemap
 
-# jekyll-multiple-languages-plugin settings:
+# Languages. The i18n is hand-rolled: `lang:` front matter, `/en/...` and `/pl/...` permalinks and
+# `.en.`/`.pl.` file twins. These two keys are consumed by _includes/head.html and _includes/header.html.
 languages: ["en", "pl"]
 language_names:
   en: English
   pl: Polski
-exclude_from_localizations: ["assets", "images", "css", "js"]
+
+# Front matter defaults. jekyll-seo-tag has no site-wide og:image fallback and would emit
+# og:locale="pl" verbatim, hence `image` and `locale` are provided here.
+defaults:
+  - scope:
+      path: ""
+    values:
+      locale: en_US
+      image:
+        path: /assets/images/avatar.jpg
+        width: 365
+        height: 365
+      twitter:
+        card: summary
+  - scope:
+      path: "**/*.pl.*"
+    values:
+      locale: pl_PL
+  - scope:
+      path: "oswiadczenie_pasazera_drift_taxi.pdf"   # unlinked form: keep it out of sitemap.xml
+    values:
+      sitemap: false

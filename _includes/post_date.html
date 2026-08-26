@@ -1,0 +1,13 @@
+{%- comment -%}
+  Renders a post date as <time>, localised: "1 czerwca 2018" for pl, "Jun 1, 2018" otherwise.
+  Usage: {% include post_date.html date=post.date lang=post.lang %}
+{%- endcomment -%}
+{%- assign date_lang = include.lang | default: page.lang | default: site.lang -%}
+{%- if date_lang == "pl" -%}
+  {%- assign pl_months = "stycznia,lutego,marca,kwietnia,maja,czerwca,lipca,sierpnia,września,października,listopada,grudnia" | split: "," -%}
+  {%- assign month_index = include.date | date: "%-m" | minus: 1 -%}
+  {%- capture date_text %}{{ include.date | date: "%-d" }} {{ pl_months[month_index] }} {{ include.date | date: "%Y" }}{% endcapture -%}
+{%- else -%}
+  {%- capture date_text %}{{ include.date | date: "%b %-d, %Y" }}{% endcapture -%}
+{%- endif -%}
+<time datetime="{{ include.date | date_to_xmlschema }}">{{ date_text }}</time>
