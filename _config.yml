@@ -15,7 +15,6 @@ profile: Software developer, Drift racing driver
 #github_username:  github_username
 
 include: ["assets", "_pages", "_posts"]
-exclude: ["LICENSE.txt", "README.md"]
 
 highlighter: rouge
 markdown: kramdown
@@ -28,15 +27,8 @@ permalink: /:title
 
 # Plugins
 plugins:
- - jekyll-paginate
- - jekyll-gist
- - jemoji
  - jekyll-multiple-languages-plugin
  - jekyll-cache-bust
- 
-# Paginate
-paginate: 5
-paginate_path: "page:num"
 
 # jekyll-multiple-languages-plugin settings:
 languages: ["en", "pl"]
