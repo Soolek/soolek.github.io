@@ -50,3 +50,24 @@
     }
 }
 }
+
+// Home page title, styled like the logo: yellow "Code" / "Drive", white "and", black outline so it works on the light page
+.home-title {
+	font-family: $display-font-family;
+	font-style: italic;
+	font-size: 52px;
+	line-height: 1.1;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	color: #fff;
+	-webkit-text-stroke: 2.5px #000;
+	paint-order: stroke fill;   // stroke behind the fill: crisp ~1px outline instead of eating into the letters
+	text-shadow: 0.06em 0.06em 0.15em rgba(0, 0, 0, 0.35);
+
+	.home-title__accent {
+		color: $accent-glow;   // the logo's yellow
+	}
+	@include media-query($on-palm) {
+		font-size: 40px;
+	}
+}

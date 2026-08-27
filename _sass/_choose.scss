@@ -3,6 +3,21 @@ $choose-width:  720px;   // native photo width = max stage width
 $choose-margin: 200px;   // divider travel limit, keeps both labels visible
 $choose-step:   ($choose-width / 2 - $choose-margin);   // 160px between the three positions
 
+// "What is your interest?" - sits 3px above the widget, in the widget's display font
+.choose-heading {
+	margin: 1em 0 3px;
+	text-align: center;
+	font-family: $display-font-family;
+	font-style: italic;
+	font-size: 34px;
+	line-height: 1.1;
+	letter-spacing: 2px;
+
+	+ .choose {
+		margin-top: 0;
+	}
+}
+
 .choose {
 	--choose-pos: 50%;   // divider x as a fraction of the stage width (360 px at native size)
 	margin: 1em 0;
