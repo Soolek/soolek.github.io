@@ -127,6 +127,9 @@ $choose-step:   ($choose-width / 2 - $choose-margin);   // 160px between the thr
 	@media (hover: hover) and (pointer: fine) {
 		pointer-events: auto;
 	}
+	@include media-query($on-palm) {
+		padding: 0 4px 4px;
+	}
 }
 .choose__label {
 	padding: 0 .4em;
@@ -136,8 +139,10 @@ $choose-step:   ($choose-width / 2 - $choose-margin);   // 160px between the thr
 	text-transform: uppercase;
 	letter-spacing: 2px;
 
+	// phones: "Programista" must clear the divider at its nearest position (27.8% of a ~370px stage)
 	@include media-query($on-palm) {
-		letter-spacing: 1px;
+		font-size: 16px;
+		letter-spacing: .5px;
 	}
 }
 .choose__more {
