@@ -9,9 +9,15 @@ description: "Tomasz Sułkowski – .NET software developer and drift racing dri
 <div class="home">
   <h1 class="page-heading">Code and Drive</h1>
 
-  <p>Welcome to My Dual World of Innovation and Adrenaline, where the precision of code meets the thrill of the race track. Over two decades as a software developer have taught me how to architect robust, scalable systems using the .NET ecosystem, microservice architectures, and modern integration techniques. Every line of code is crafted with the same precision and passion that guides me on the driving circuit.</p>
-  <p>From my early days fueling an interest in programming on the 8-bit Atari to leading commercial software projects, I’ve always been captivated by the challenge of transforming complex problems into efficient, elegant solutions. This drive for innovation is mirrored in my analytical approach to motorsports, where an unyielding passion for high-performance driving fuels my pursuits.</p>
-  <p>As a racing and drifting enthusiast, I’ve immersed myself in the art of car control since my first amateur rally with a low-powered rear-wheel-drive car. My passion evolved into a competitive spirit—propelling me to win regional championships and excel in drifting competitions across Poland. The same focus, adaptability, and relentless pursuit of excellence that define my programming career also power my approach behind the wheel.</p>
+  <p>Welcome to My Dual World of Innovation and Adrenaline, where the precision of code meets the thrill of the race track.</p>
+
+  <h2>What is your interest?</h2>
+
+  {%- capture choose_left %}From my early days fueling an interest in programming on the 8-bit Atari to leading commercial software projects, I’ve always been captivated by the challenge of transforming complex problems into efficient, elegant solutions. This drive for innovation is mirrored in my analytical approach to motorsports, where an unyielding passion for high-performance driving fuels my pursuits.{% endcapture -%}
+  {%- capture choose_center %}Over two decades as a software developer have taught me how to architect robust, scalable systems using the .NET ecosystem, microservice architectures, and modern integration techniques. Every line of code is crafted with the same precision and passion that guides me on the driving circuit.{% endcapture -%}
+  {%- capture choose_right %}As a racing and drifting enthusiast, I’ve immersed myself in the art of car control since my first amateur rally with a low-powered rear-wheel-drive car. My passion evolved into a competitive spirit—propelling me to win regional championships and excel in drifting competitions across Poland. The same focus, adaptability, and relentless pursuit of excellence that define my programming career also power my approach behind the wheel.{% endcapture -%}
+  {% include choose.html label_left="Developer" label_right="Driver" alt_left="Tomasz Sułkowski in a suit – the software developer" alt_right="Tomasz Sułkowski in a racing suit and helmet – the drift driver" text_left=choose_left text_center=choose_center text_right=choose_right %}
+
   <p>In a world where precision matters, I bridge the gap between innovative software solutions and dynamic motorsport performance. Whether it’s building cutting-edge backend architectures or mastering the perfect drift, I believe that strategic vision, calculated risk, and continuous learning drive excellence.</p>
 
   <br>

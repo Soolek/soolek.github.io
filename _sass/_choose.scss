@@ -1,0 +1,145 @@
+// Home page: developer / driver image comparison (_includes/choose.html, assets/js/choose.js)
+$choose-width:  720px;   // native photo width = max stage width
+$choose-margin: 200px;   // divider travel limit, keeps both labels visible
+$choose-step:   ($choose-width / 2 - $choose-margin);   // 160px between the three positions
+
+.choose {
+	--choose-pos: 50%;   // divider x as a fraction of the stage width (360 px at native size)
+	margin: 1em 0;
+
+	// "left" = developer chosen: the divider moves right (520 px) to reveal more of the developer photo,
+	// "right" = driver chosen: the divider moves left (200 px) to reveal more of the driver photo.
+	// Ruby Sass emits custom-property values verbatim, hence the #{} interpolation
+	&[data-pos="left"]  { --choose-pos: #{percentage(1 - $choose-margin / $choose-width)}; }
+	&[data-pos="right"] { --choose-pos: #{percentage($choose-margin / $choose-width)}; }
+}
+
+.choose__stage {
+	position: relative;
+	max-width: $choose-width;
+	margin: 0 auto;
+	overflow: hidden;
+	background: #000;
+	cursor: ew-resize;
+	-webkit-user-select: none;
+	user-select: none;
+
+	&:focus-visible {
+		outline: 2px solid $accent;
+		outline-offset: 2px;
+	}
+}
+// Developer photo: in flow, gives the stage its height (from the width/height attributes even before it loads)
+.choose__img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+// Driver photo: on top, visible right of the divider
+.choose__img--driver {
+	position: absolute;
+	inset: 0;
+	height: 100%;   // inset alone does not stretch a replaced element
+	clip-path: inset(0 0 0 var(--choose-pos));
+	transition: clip-path .5s ease;
+}
+.choose__divider {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: var(--choose-pos);
+	width: 2px;
+	background: #fff;
+	box-shadow: 0 0 4px rgba(0, 0, 0, .6);
+	transform: translateX(-50%);   // straddles the clip edge, hides sub-pixel seams
+	pointer-events: none;
+	transition: left .5s ease;     // same timing as the clip so line and photo move together
+
+	// round handle with small arrows
+	&::after {
+		content: "\25C2\00a0\25B8";
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 32px;
+		height: 32px;
+		border: 2px solid #fff;
+		border-radius: 50%;
+		background: rgba(0, 0, 0, .4);
+		font: 12px/1 $base-font-family;
+		color: #fff;
+		transform: translate(-50%, -50%);
+	}
+}
+.choose__label {
+	position: absolute;
+	bottom: 6px;
+	padding: 0 .4em;
+	font-family: $display-font-family;
+	font-size: clamp(18px, 5vw, 32px);
+	line-height: 1.2;
+	color: #fff;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	text-shadow: 0.1em 0.1em 0.2em rgba(0, 0, 0, 0.7);
+	pointer-events: none;
+
+	&--left  { left: 8px; }
+	&--right { right: 8px; }
+
+	@include media-query($on-palm) {
+		letter-spacing: 1px;
+	}
+}
+// Invisible horizontal scroller on top of the stage: three snap stops, one per 160px of divider travel
+.choose__scroller {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	overflow-x: auto;
+	overflow-y: hidden;
+	scroll-snap-type: x mandatory;
+	overscroll-behavior-x: contain;   // -x only: the shorthand would also trap vertical page scrolling
+	scrollbar-width: none;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+}
+.choose__stop {
+	flex: 0 0 percentage($choose-step / $choose-width);
+	scroll-snap-align: start;
+
+	&:last-child {
+		flex-basis: 100%;   // max scrollLeft == third stop, so mandatory snapping never rubber-bands
+	}
+}
+// One paragraph per position: the old one fades out (0-.3s) before the new one fades in (.3-.6s)
+.choose__texts {
+	display: grid;   // all three share one cell, so the block is as tall as the longest text and nothing jumps
+}
+.choose__text {
+	grid-row: 1;
+	grid-column: 1;
+	margin: 1em 0;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity .3s, visibility 0s .3s;
+}
+.choose[data-pos="left"]   .choose__text--left,
+.choose[data-pos="center"] .choose__text--center,
+.choose[data-pos="right"]  .choose__text--right {
+	opacity: 1;
+	visibility: visible;
+	transition: opacity .3s .3s, visibility 0s;
+}
+@media (prefers-reduced-motion: reduce) {
+	.choose__img--driver,
+	.choose__divider,
+	.choose__text {
+		transition: none;
+	}
+}

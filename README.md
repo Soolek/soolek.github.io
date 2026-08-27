@@ -69,14 +69,14 @@ A page that shows a gallery needs `gallery: true` in its front matter (loads the
 ```
 _config.yml          site settings, plugins, front matter defaults
 _layouts/            default (header + sidebar + footer), post
-_includes/           head, header, sidebar, alternate_page, post_date, gallery
+_includes/           head, header, sidebar, alternate_page, post_date, gallery, choose
 _pages/              developer.*.html, driver.*.html
 home.*.html          language home pages; index.html redirects by browser language
 404.html, feed.xml   error page, RSS feed (both languages, each item carries xml:lang)
 _posts/              blog posts (per language)
 _data/galleries.yml  gallery captions
 _sass/, css/         styles (Sass, compiled by Jekyll)
-assets/              images, self-hosted fonts (+ OFL), vendored JS/CSS (+ GLightbox LICENSE)
+assets/              images, self-hosted fonts (+ OFL), site JS (js/), vendored JS/CSS (+ GLightbox LICENSE)
 scripts/             maintenance scripts (not published)
 CNAME, *.pdf         custom domain for GitHub Pages; the CV and the drift-taxi passenger form
 ```

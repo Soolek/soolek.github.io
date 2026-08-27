@@ -1,0 +1,25 @@
+{%- comment -%}
+  Developer / driver image comparison (home pages). Mouse: hover a half; touch: swipe (snaps); keyboard: left/right arrows.
+  Params (page-language strings): label_left, label_right, alt_left, alt_right, text_left, text_center, text_right.
+  The texts are inline HTML captured with the capture tag in the page; each is wrapped in a <p>.
+  The developer photo is in flow (it gives the stage its height), the driver photo sits on top and is clipped
+  left of the divider; the invisible scroller provides the three snap stops (see assets/js/choose.js).
+{%- endcomment -%}
+<div class="choose" data-pos="center">
+  <div class="choose__stage" role="group" tabindex="0" aria-label="{{ include.label_left }} / {{ include.label_right }}">
+    <img class="choose__img choose__img--developer" src="{{ "/assets/images/home/choose_developer.jpg" | relative_url }}" width="720" height="365" alt="{{ include.alt_left | escape }}">
+    <img class="choose__img choose__img--driver" src="{{ "/assets/images/home/choose_driver.jpg" | relative_url }}" width="720" height="365" alt="{{ include.alt_right | escape }}">
+    <div class="choose__divider" aria-hidden="true"></div>
+    <span class="choose__label choose__label--left">{{ include.label_left }}</span>
+    <span class="choose__label choose__label--right">{{ include.label_right }}</span>
+    <div class="choose__scroller" tabindex="-1" aria-hidden="true">
+      <div class="choose__stop"></div><div class="choose__stop"></div><div class="choose__stop"></div>
+    </div>
+  </div>
+  <div class="choose__texts">
+    <p class="choose__text choose__text--left">{{ include.text_left }}</p>
+    <p class="choose__text choose__text--center">{{ include.text_center }}</p>
+    <p class="choose__text choose__text--right">{{ include.text_right }}</p>
+  </div>
+</div>
+<script src="{{ "/assets/js/choose.js" | relative_url }}" defer></script>
