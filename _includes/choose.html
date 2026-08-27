@@ -1,6 +1,8 @@
 {%- comment -%}
   Developer / driver image comparison (home pages). Mouse: hover a half; touch: swipe (snaps); keyboard: left/right arrows.
-  Params (page-language strings): label_left, label_right, alt_left, alt_right, text_left, text_center, text_right.
+  Params (page-language strings): label_left, label_right, href_left, href_right, more, alt_left, alt_right,
+  text_left, text_center, text_right. Each half of the photo is a link (href_left / href_right) showing its label
+  and, when that side is chosen, the `more` line.
   The texts are inline HTML captured with the capture tag in the page; each is wrapped in a <p>.
   The developer photo is in flow (it gives the stage its height), the driver photo sits on top and is clipped
   left of the divider; the invisible scroller provides the three snap stops (see assets/js/choose.js).
@@ -10,8 +12,8 @@
     <img class="choose__img choose__img--developer" src="{{ "/assets/images/home/choose_developer.jpg" | relative_url }}" width="720" height="365" alt="{{ include.alt_left | escape }}">
     <img class="choose__img choose__img--driver" src="{{ "/assets/images/home/choose_driver.jpg" | relative_url }}" width="720" height="365" alt="{{ include.alt_right | escape }}">
     <div class="choose__divider" aria-hidden="true"></div>
-    <span class="choose__label choose__label--left">{{ include.label_left }}</span>
-    <span class="choose__label choose__label--right">{{ include.label_right }}</span>
+    <a class="choose__side choose__side--left" href="{{ include.href_left | relative_url }}"><span class="choose__label">{{ include.label_left }}</span><span class="choose__more">{{ include.more }}</span></a>
+    <a class="choose__side choose__side--right" href="{{ include.href_right | relative_url }}"><span class="choose__label">{{ include.label_right }}</span><span class="choose__more">{{ include.more }}</span></a>
     <div class="choose__scroller" tabindex="-1" aria-hidden="true">
       <div class="choose__stop"></div><div class="choose__stop"></div><div class="choose__stop"></div>
     </div>

@@ -40,6 +40,16 @@
     e.preventDefault();   // a focused scroller would otherwise scroll 40px and snap straight back
     go(current + (e.key === "ArrowLeft" ? -1 : 1));
   });
+  // Touch devices (the side links sit under the scroller there): a tap on the chosen side opens its page,
+  // a tap on the other side chooses it first. Mouse clicks land on the links themselves and navigate natively.
+  var sides = root.querySelectorAll(".choose__side");
+  stage.addEventListener("click", function (e) {
+    if (e.target.closest("a")) return;
+    var r = stage.getBoundingClientRect();
+    var side = e.clientX - r.left < r.width / 2 ? 0 : 2;
+    if (current === side) window.location.href = sides[side / 2].href;
+    else go(side);
+  });
   // The stops are percentages but scrollLeft is pixels: keep the current position on resize / rotation
   window.addEventListener("resize", function () { go(current); });
 

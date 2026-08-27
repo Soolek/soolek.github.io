@@ -35,7 +35,7 @@ $choose-step:   ($choose-width / 2 - $choose-margin);   // 160px between the thr
 	margin: 0 auto;
 	overflow: hidden;
 	background: #000;
-	cursor: ew-resize;
+	cursor: pointer;
 	-webkit-user-select: none;
 	user-select: none;
 
@@ -89,30 +89,77 @@ $choose-step:   ($choose-width / 2 - $choose-margin);   // 160px between the thr
 		transform: translate(-50%, -50%);
 	}
 }
-.choose__label {
+// Each half of the photo is a link to the developer / driver page; it shows the big label and, when that side is
+// chosen, the "Read more..." line. On mouse devices the links sit above the scroller (real links: cursor, status
+// bar, ctrl-click); on touch devices they stay below it so swipes reach the scroller and taps are handled in JS.
+.choose__side {
 	position: absolute;
-	bottom: 6px;
+	top: 0;
+	bottom: 0;
+	z-index: 2;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	width: 50%;
+	padding: 0 8px 6px;
+	box-sizing: border-box;
+	color: #fff;
+	text-shadow: 0.1em 0.1em 0.2em rgba(0, 0, 0, 0.7);
+	pointer-events: none;
+
+	&, &:hover, &:focus {
+		color: #fff;
+		text-decoration: none;
+	}
+	&:focus-visible {
+		outline: 2px solid $accent;
+		outline-offset: -2px;
+	}
+	&--left {
+		left: 0;
+		align-items: flex-start;
+	}
+	&--right {
+		right: 0;
+		align-items: flex-end;
+		text-align: right;
+	}
+	@media (hover: hover) and (pointer: fine) {
+		pointer-events: auto;
+	}
+}
+.choose__label {
 	padding: 0 .4em;
 	font-family: $display-font-family;
 	font-size: clamp(18px, 5vw, 32px);
 	line-height: 1.2;
-	color: #fff;
 	text-transform: uppercase;
 	letter-spacing: 2px;
-	text-shadow: 0.1em 0.1em 0.2em rgba(0, 0, 0, 0.7);
-	pointer-events: none;
-
-	&--left  { left: 8px; }
-	&--right { right: 8px; }
 
 	@include media-query($on-palm) {
 		letter-spacing: 1px;
 	}
 }
+.choose__more {
+	padding: 0 .4em;
+	font-size: $small-font-size;
+	font-style: italic;
+	line-height: 1.4;
+	opacity: 0;   // space is always reserved so the label never jumps
+	transition: opacity .3s;
+}
+.choose[data-pos="left"]  .choose__side--left  .choose__more,
+.choose[data-pos="right"] .choose__side--right .choose__more {
+	opacity: 1;
+}
+.choose__side:hover .choose__more {
+	text-decoration: underline;
+}
 // Invisible horizontal scroller on top of the stage: three snap stops, one per 160px of divider travel
 .choose__scroller {
 	position: absolute;
 	inset: 0;
+	z-index: 1;
 	display: flex;
 	overflow-x: auto;
 	overflow-y: hidden;
@@ -154,7 +201,8 @@ $choose-step:   ($choose-width / 2 - $choose-margin);   // 160px between the thr
 @media (prefers-reduced-motion: reduce) {
 	.choose__img--driver,
 	.choose__divider,
-	.choose__text {
+	.choose__text,
+	.choose__more {
 		transition: none;
 	}
 }
