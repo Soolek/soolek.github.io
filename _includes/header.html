@@ -3,13 +3,6 @@
     <a class="site-title" href="{{ "/" | append: page_lang | append: "/home/" | relative_url }}">
       <img class="logo" src="{{ "/assets/images/codeanddrive_glitch_174x55.png" | relative_url }}" width="174" height="55" alt="{{ site.title }}">
     </a>
-    <nav class="site-nav" aria-label="{% if page_lang == "pl" %}Menu główne{% else %}Main menu{% endif %}">
-      {%- for sitepage in site.pages %}
-        {%- if sitepage.title and sitepage.public and sitepage.lang == page_lang and sitepage.layout == "default" %}
-      <a class="page-link" href="{{ sitepage.url | relative_url }}">{{ sitepage.nav_title | default: sitepage.title }}</a>
-        {%- endif %}
-      {%- endfor %}
-    </nav>
     <div class="site-languages">
       {%- for lang in site.languages %}
         {%- assign lang_name = site.language_names[lang] | default: lang %}
@@ -32,4 +25,14 @@
   </div>
 </header>
 
-<div class="sub-header"></div>
+<div class="sub-header">
+  <div class="wrapper">
+    <nav class="site-nav" aria-label="{% if page_lang == "pl" %}Menu główne{% else %}Main menu{% endif %}">
+      {%- for sitepage in site.pages %}
+        {%- if sitepage.title and sitepage.public and sitepage.lang == page_lang and sitepage.layout == "default" %}
+      <a class="page-link" href="{{ sitepage.url | relative_url }}"{% if sitepage.url == page.url %} aria-current="page"{% endif %}>{{ sitepage.nav_title | default: sitepage.title }}</a>
+        {%- endif %}
+      {%- endfor %}
+    </nav>
+  </div>
+</div>

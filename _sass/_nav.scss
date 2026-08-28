@@ -1,0 +1,121 @@
+// Main menu (_includes/header.html): folder tabs standing on the content box, at the right end of the sub-header.
+// A tab is the link text over two skewed halves (::before / ::after) that form a trapezoid with real borders
+// and rounded top corners. Closed tabs sit $tab-sink lower; the hidden strip is behind the content box.
+$tab-height: 26px;
+$tab-sink:   3px;
+$tab-slant:  14deg;
+$tab-border: #b4b4b4;
+$tab-fill:   rgba(250, 250, 250, 0.95);   // same as .page-content .wrapper, so the open tab merges with it
+$glitch-red: rgba(255, 0, 0, 0.7);        // the red fringe of the glitch logo
+
+.site-nav {
+	display: flex;
+	gap: 3px;
+	margin-right: 20px;
+}
+
+.page-link {
+	position: relative;
+	isolation: isolate;   // keeps the halves (z-index -1) inside the tab
+	display: block;
+	height: $tab-height;
+	padding: 0 16px;
+	font-family: $display-font-family;
+	font-size: 17px;
+	line-height: $tab-height;
+	letter-spacing: 1.5px;
+	text-transform: uppercase;
+	white-space: nowrap;
+	transform: translateY($tab-sink);
+	transition: transform .25s ease-out, color .25s;
+
+	// the base link colours and underline must not leak in (hover and the open tab set their own colour below)
+	&, &:hover, &:focus {
+		color: #3a3a3a;
+		text-decoration: none;
+	}
+	&:focus-visible {
+		outline: 2px solid $accent;
+		outline-offset: 2px;
+	}
+
+	&::before, &::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		z-index: -1;
+		width: calc(50% + 2px);   // the halves overlap, so no seam shows where they meet
+		border: 1px solid $tab-border;
+		border-bottom: 0;
+		// layer 1: the scanline, parked above the tab until a hover sweeps it down; layer 2: the tab face
+		background-image:
+			linear-gradient(to bottom, transparent, rgba($accent, .6), transparent),
+			linear-gradient(to bottom, #f6f6f6, #dcdcdc);
+		background-size: 100% 8px, auto;
+		background-position: 0 -12px, 0 0;
+		background-repeat: no-repeat;
+		transition: border-color .25s, box-shadow .25s;
+	}
+	&::before {
+		left: 0;
+		border-right: 0;
+		clip-path: inset(-10px 0 0 -10px);   // room for the glow, but none over the other half
+		border-top-left-radius: 6px;
+		transform: skewX(-$tab-slant);
+		transform-origin: bottom left;
+	}
+	&::after {
+		right: 0;
+		border-left: 0;
+		clip-path: inset(-10px -10px 0 0);
+		border-top-right-radius: 6px;
+		transform: skewX($tab-slant);
+		transform-origin: bottom right;
+	}
+
+	// hover: the tab rises, its edges light up cyan, a scanline sweeps down and the label glitches like the logo
+	&:hover, &:focus-visible {
+		color: #000;
+		transform: none;
+		text-shadow: -1px 0 rgba(255, 0, 0, .35), 1px 0 rgba($accent, .75);
+		animation: tab-glitch .4s steps(1);
+
+		&::before, &::after {
+			border-color: $accent;
+			box-shadow: 0 0 6px rgba($accent, .6);
+			animation: tab-scan .5s ease-out;
+		}
+	}
+
+	// open tab: joined to the content box, yellow top edge and a faint cyan wash from the logo's palette
+	&[aria-current="page"] {
+		z-index: 1;   // above the content box's outline, which the tab face covers
+		color: #111;
+		transform: none;
+		text-shadow: 1px 0 rgba($accent, .55);
+		animation: none;
+
+		&::before, &::after {
+			border-color: mix($accent, $tab-border, 40%);
+			border-top: 2px solid $accent-glow;
+			box-shadow: none;
+			background-color: $tab-fill;
+			background-image:
+				linear-gradient(to bottom, transparent, rgba($accent, .6), transparent),
+				linear-gradient(to bottom, rgba($accent, .18), rgba($accent, 0) 60%);
+		}
+	}
+}
+
+@keyframes tab-scan {
+	from { background-position: 0 -12px, 0 0; }
+	to   { background-position: 0 38px, 0 0; }
+}
+// chromatic aberration jumping around for a few frames, then settling on the hover text-shadow
+@keyframes tab-glitch {
+	0%   { text-shadow: -2px 0 $glitch-red, 2px 0 rgba($accent, .9); }
+	25%  { text-shadow: 1px 0 $glitch-red, -1px 0 rgba($accent, .9); }
+	50%  { text-shadow: -1px 1px $glitch-red, 2px -1px rgba($accent, .8); }
+	75%  { text-shadow: 2px 0 rgba(255, 0, 0, .5), -2px 0 rgba($accent, .8); }
+}

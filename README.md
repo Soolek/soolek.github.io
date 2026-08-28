@@ -32,7 +32,7 @@ Note that once a `Gemfile` exists Jekyll insists on bundler (set `JEKYLL_NO_BUND
 | What | How |
 | --- | --- |
 | Languages | Every page/post exists twice: `name.en.html` and `name.pl.html` (or `.md`), each with `lang: en` / `lang: pl` in its front matter. Pages use explicit `permalink: /en/…/` and `/pl/…/`; the header switcher finds the twin by swapping the language token in the file name (`_includes/alternate_page.html`). |
-| Navigation | A page appears in the top menu when it has `public: true`, `layout: default`, a `title` and the same `lang` as the page being viewed; `nav_title` is the short label shown in the menu. |
+| Navigation | A page appears as a tab under the header (the current page's tab is the open one) when it has `public: true`, `layout: default`, a `title` and the same `lang` as the page being viewed; `nav_title` is the short label shown in the menu. |
 | Posts | `_posts/YYYY-MM-DD-slug.<lang>.md`, `public: true` to list them (home page, sidebar, RSS). A draft gets `published: false` so it is not built at all. Post URLs are `/slug.<lang>` (kept for existing inbound links). |
 | SEO | `description:` (one sentence), `image:` (`path`, `width`, `height` – the page's own photo, used as `og:image`) and `twitter: {card: …}` per page and post; defaults live in `_config.yml`. |
 | Dates | `{% include post_date.html date=post.date lang=post.lang %}` renders localised `<time>` elements. |

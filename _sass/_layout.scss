@@ -46,10 +46,11 @@
 		}
 	}
 	.site-languages {
+		margin-left: auto;
 		display: flex;
 		align-items: center;
 		gap: 6px;
-			
+
 		.pl {
 			display: inline-block;
 			width: 29px;
@@ -72,38 +73,19 @@
 			background-size: 100%;
 		}
 	}
-	.site-nav {
-		margin-left: auto;
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: flex-end;
-		gap: 5px;
-		line-height: $base-font-size * 2;
-
-		a {
-			display: inline-block;
-			padding: 0 5px;
-			color: $header-link;
-			text-decoration: none;
-			border: 2px solid $nav-link-border;
-			border-radius: 10px;
-			transition: all 0.3s ease-in-out;
-		
-			&:hover, &:focus { 
-				background-color: $accent;
-				color: #000;
-				box-shadow: 0 0 5px $accent-glow;
-				border: 2px solid $accent-glow;
-				transform: translateY(-5px);
-			}
-		}
-	}
 }
 
 .sub-header {
-	height: 60px;
-	padding: 5px;
+	height: 30px;
 	background: linear-gradient(to bottom, rgba(250, 250, 250, 1), rgba(250, 250, 250, 0));
+
+	// the folder tabs (_nav.scss) stand on the bottom edge, right-aligned
+	.wrapper {
+		display: flex;
+		justify-content: flex-end;
+		align-items: flex-end;
+		height: 100%;
+	}
 }
 
 body {
@@ -112,7 +94,7 @@ body {
 }
 
 .page-content {
-	padding: 10px 0;
+	padding: 0 0 10px;
 
 	.wrapper {
 		position: relative;
@@ -270,17 +252,6 @@ body {
 	}
 }
 @include media-query($on-palm) {
-	.header {
-		// row 1: logo ........ flags, row 2: nav buttons (right-aligned)
-		.site-languages {
-			margin-left: auto;
-		}
-		.site-nav {
-			order: 3;
-			flex-basis: 100%;
-			margin-left: 0;
-		}
-	}
 	.col-main {
 		padding: 10px;
 	}

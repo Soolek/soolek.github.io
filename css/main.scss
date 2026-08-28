@@ -24,12 +24,10 @@ $color-link-hover: #069;
 
 $header-bg: #494949;
 $header-fg: #FFF;
-$header-link: #CFD8DC;
 $header-border: #719aa7;   // groove under the header
-$nav-link-border: #595959;
 
-$accent: #4bceff;          // nav link hover background
-$accent-glow: #ffeb08;     // nav link hover glow + border
+$accent: #4bceff;          // the logo's cyan
+$accent-glow: #ffeb08;     // the logo's yellow
 $border-color: #ccc;       // hairlines: borders, outlines, table rules
 
 // `$media` defaults to `screen`; pass `all` when the rule must also apply in print
@@ -40,11 +38,12 @@ $border-color: #ccc;       // hairlines: borders, outlines, table rules
 }
 
 // Import partials from `sass_dir` (defaults to `_sass`).
-// Cascade order: fonts -> base -> layout (incl. its breakpoint blocks) -> page partials -> highlighter.
+// Cascade order: fonts -> base -> layout (incl. its breakpoint blocks) -> nav -> page partials -> highlighter.
 @import
         "fonts",
         "base",
         "layout",
+        "nav",
         "post",
         "home",
         "choose",
