@@ -203,11 +203,3 @@ $choose-step:   ($choose-width / 2 - $choose-margin);   // 160px between the thr
 	visibility: visible;
 	transition: opacity .3s .3s, visibility 0s;
 }
-@media (prefers-reduced-motion: reduce) {
-	.choose__img--driver,
-	.choose__divider,
-	.choose__text,
-	.choose__more {
-		transition: none;
-	}
-}
