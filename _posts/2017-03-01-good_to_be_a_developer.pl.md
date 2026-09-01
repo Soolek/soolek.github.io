@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Pozytywnie: Jak dobrze być programistą w dzisiejszych czasach"
-date:   2017-03-01 17:00
+title: "Pozytywnie: Jak dobrze być programistą w dzisiejszych czasach"
+date: 2017-03-01 17:00
 public: true
 categories: developer
 lang: pl
@@ -12,7 +12,7 @@ image:
 twitter:
   card: summary_large_image
 ---
- 
+
 W połowie lipca 2016 - konkretnie w piątek, kiedy jechałem na zawody driftingowe DriftOpen w Koszalinie, dostałem dziwny telefon od kolegi z ówczesnej pracy:
 
 > "Cześć, eee, zamykają nam biuro i jest pytanie czy zabrać Tobie coś z biura?"
@@ -31,7 +31,7 @@ Na moje szczęście jestem programistą. Informacja o upadku firmy szybko dotar�
 
 ...a ja ciągle nie mogłem uwierzyć jak szybko tak ważne sprawy mogły się potoczyć.
 
-Warto być programistą w dzisiejszych czasach - zachęcam do tego każdego, kto jeszcze nie wie co chce w życiu robić, jak i tych, którzy rozważają zmianę profesji. Dzięki wybranej przez siebie ścieżce zawodowej mogłem się poczuć jak jeden z programistów Twittera będący autorem poniższego cytatu: 
+Warto być programistą w dzisiejszych czasach - zachęcam do tego każdego, kto jeszcze nie wie co chce w życiu robić, jak i tych, którzy rozważają zmianę profesji. Dzięki wybranej przez siebie ścieżce zawodowej mogłem się poczuć jak jeden z programistów Twittera będący autorem poniższego cytatu:
 
 > Bezrobocie to było najgorsze 37 minut mojego życia
 
@@ -39,7 +39,7 @@ Warto być programistą w dzisiejszych czasach - zachęcam do tego każdego, kto
 
 Ostatecznie podbudowany ilością ofert, dałem sobie 3 tygodnie na znalezienie pracy z której byłbym zadowolony. Była to najlepsza decyzja w moim życiu. Otóż, okazało się, że nie tylko będę w stanie znaleźć ciekawą pracę, ale także taką w której będę mógł spełniać swoją pasję obcowania z samochodami - [Delphi w Krakowie](http://www.delphikrakow.pl), gdzie miałem nadzieję pracować przy autonomicznych samochodach:
 
-[![YouTube](/assets/images/youtube.png){: .yt-image-logo}![Autonomiczny samochód Delphi – miniatura wideo](https://img.youtube.com/vi/meTZKZp5QDY/0.jpg){: .yt-image}](https://www.youtube.com/watch?v=meTZKZp5QDY)
+[![YouTube](/assets/images/youtube.png){: .yt-image-logo}![Autonomiczny samochód Delphi - miniatura wideo](https://img.youtube.com/vi/meTZKZp5QDY/0.jpg){: .yt-image}](https://www.youtube.com/watch?v=meTZKZp5QDY)
 
 Pomimo, że zostałem zatrudniony jako .NET developer, szybko (praktycznie 3 dni od rozpoczęcia pracy) dostałem wyzwanie - napisać algorytm wizyjny do zaznaczania drogi i samochodów w C++. Wow - musiałem bardzo dużo się nauczyć w ekstremalnie krótkim czasie, ale to jest dokładnie to, co chciałem robić - podążać w kierunku autonomicznych samochodów, które są idealnym połączeniem moich dwóch pasji: programowania oraz kierowania.
 

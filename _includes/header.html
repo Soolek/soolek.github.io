@@ -28,7 +28,8 @@
 <div class="sub-header">
   <div class="wrapper">
     <nav class="site-nav" aria-label="{% if page_lang == "pl" %}Menu główne{% else %}Main menu{% endif %}">
-      {%- for sitepage in site.pages %}
+      {%- assign nav_pages = site.pages | sort: "nav_order", "last" %}
+      {%- for sitepage in nav_pages %}
         {%- if sitepage.title and sitepage.public and sitepage.lang == page_lang and sitepage.layout == "default" %}
       <a class="page-link" href="{{ sitepage.url | relative_url }}"{% if sitepage.url == page.url %} aria-current="page"{% endif %}>{{ sitepage.nav_title | default: sitepage.title }}</a>
         {%- endif %}

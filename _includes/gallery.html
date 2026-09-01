@@ -24,7 +24,7 @@
     {%- assign caption = captions[photo.name][gallery_lang] -%}
   {%- endif -%}
   {%- unless caption -%}
-    {%- capture caption %}{{ include.alt | default: include.name }} – {% if gallery_lang == "pl" %}zdjęcie{% else %}photo{% endif %} {{ n }}{% endcapture -%}
+    {%- capture caption %}{{ include.alt | default: include.name }} - {% if gallery_lang == "pl" %}zdjęcie{% else %}photo{% endif %} {{ n }}{% endcapture -%}
   {%- endunless %}
   <a class="glightbox" href="{{ photo.path | relative_url }}" data-gallery="{{ include.name }}" data-title="{{ caption | escape }}">
     <img src="{{ thumb.path | default: photo.path | relative_url }}" width="600" height="400" loading="lazy" alt="{{ caption | escape }}">

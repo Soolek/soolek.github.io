@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Positive side of being a developer"
-date:   2017-03-01 17:00
+title: "Positive side of being a developer"
+date: 2017-03-01 17:00
 public: true
 categories: developer
 lang: en
@@ -12,7 +12,7 @@ image:
 twitter:
   card: summary_large_image
 ---
- 
+
 In the middle July 2016 - on Friday, when I was on my way to 3rd round of DriftOpen championship, I received a very strange call from work colleague:
 
 > "Hi, ..., our office is being closed now. Would you want to me to take something from your desk?"
@@ -39,9 +39,9 @@ So, it is very good to be a developer in today's times. I encourage everyone who
 
 With the amount of job offers growing exponentially I decided to give myself 3 weeks for finding an offer that would suit me best, and that was the best decision I have ever made. As it turned out, not only I was able to find an interesting job, but also one in which I will be able to make use of my car driving passion - [Delphi Krakow](http://www.delphikrakow.pl), where I hope to work near autonomous cars.
 
-[![YouTube](/assets/images/youtube.png){: .yt-image-logo}![Delphi autonomous car – video thumbnail](https://img.youtube.com/vi/meTZKZp5QDY/0.jpg){: .yt-image}](https://www.youtube.com/watch?v=meTZKZp5QDY)
+[![YouTube](/assets/images/youtube.png){: .yt-image-logo}![Delphi autonomous car - video thumbnail](https://img.youtube.com/vi/meTZKZp5QDY/0.jpg){: .yt-image}](https://www.youtube.com/watch?v=meTZKZp5QDY)
 
-I was employed mostly to get involved with .NET related projects, but quickly (about on my 3rd day) I was given a challenge: write a vision algorithm for marking road and cars in C++. Wow, that escalated quickly! I had to be extremely swift and learn quickly to come up with a viable solution, but this is what I always wanted to do - to get involved with autonomous cars. 
+I was employed mostly to get involved with .NET related projects, but quickly (about on my 3rd day) I was given a challenge: write a vision algorithm for marking road and cars in C++. Wow, that escalated quickly! I had to be extremely swift and learn quickly to come up with a viable solution, but this is what I always wanted to do - to get involved with autonomous cars.
 
 [![AutoLineMarker screenshot](/assets/images/posts/AutoLineMarker_screenshot_m.jpg)](/assets/images/posts/AutoLineMarker_screenshot.jpg)
 

@@ -1,0 +1,21 @@
+.call-widget {
+	margin: 20px 0;
+}
+.call-widget__button {
+	font: inherit;
+	color: #eee;
+	background: #999;
+	padding: 5px 15px;
+	border: 0;
+	border-radius: 5px;
+	cursor: pointer;
+
+	&:hover, &:focus {
+		transition: background 0.3s ease;
+		background: #666;
+	}
+}
+.call-widget__link {
+	font-size: 1.25em;
+	white-space: nowrap;
+}

@@ -1,5 +1,5 @@
 # Captions / alt texts for the folder-driven galleries (_includes/gallery.html).
-# gallery name -> file name -> language. Photos without an entry get a generic "<alt> – photo N".
+# gallery name -> file name -> language. Photos without an entry get a generic "<alt> - photo N".
 e46:
   "1.jpg":
     en: "Blue and black BMW E46 drift car with yellow wheels sliding in front of the spectators"
