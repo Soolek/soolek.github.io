@@ -12,8 +12,8 @@ logo: /assets/images/codeanddrive_glitch_174x55.png   # jekyll-seo-tag: publishe
 email: tomasz_sulkowski@wp.pl
 author: Tomasz Sułkowski
 avatar: "/assets/images/avatar.jpg"
-profile: Software developer, Drift racing driver
-profile_pl: Programista, kierowca driftingowy
+profile: .NET software engineer, drift driver
+profile_pl: Inżynier oprogramowania .NET, kierowca driftingowy
 
 # Social profiles - jekyll-seo-tag emits them as JSON-LD `sameAs` links
 social:
@@ -23,7 +23,6 @@ social:
     - https://www.facebook.com/TommyDrifting
     - https://www.youtube.com/@TommyDrifting
     - https://github.com/Soolek
-    - https://www.linkedin.com/in/tomaszsulkowski
 
 # `_pages` is an underscore directory, so it has to be listed here to be built.
 # `_posts` is read natively as a collection - listing it here would publish every post a second time under /_posts/.
