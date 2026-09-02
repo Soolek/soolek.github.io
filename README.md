@@ -67,9 +67,9 @@ tile, opened in a same-page lightbox ([GLightbox](https://github.com/biati-digit
 in `assets/vendor/glightbox/` together with its `LICENSE`). Three columns on desktop, two on phones.
 
 1. Copy the photo(s) into `assets/images/driver/e46/` (files are sorted by name - use `01.jpg`, `02.jpg`, … if order matters).
-2. Generate the thumbnails (`<name>_t.<ext>`, 600×400, needs Pillow ≥ 9.1: `pip install "pillow>=9.1"`):
+2. Generate the thumbnails (`<name>_t.<ext>`, 600×400, needs the .NET 10 SDK; the first run restores ImageSharp from nuget.org via `scripts/nuget.config`):
    ```sh
-   python3 scripts/make_thumbnails.py assets/images/driver/e46
+   dotnet run scripts/make_thumbnails.cs -- assets/images/driver/e46
    ```
 3. Optionally add a bilingual caption / alt text in `_data/galleries.yml` (photos without one get "BMW E46 drift car - photo N" /
    "Samochód driftingowy BMW E46 - zdjęcie N", built from the include's `alt`).
