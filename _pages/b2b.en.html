@@ -3,7 +3,7 @@ layout: default
 title: B2B cooperation
 nav_title: B2B
 permalink: /en/b2b/
-public: false
+public: true
 lang: en
 nav_order: 3
 gallery: true
@@ -18,7 +18,7 @@ description: "B2B cooperation with Tomasz Sułkowski - motorsport sponsorship an
     <p>I combine the world of professional software development with competitive drifting. Are you looking for a business partner who cares about delivering on goals, optimisation and hard data? Let's build your brand's competitive edge together.</p>
 
     <div class="cta">
-      <a class="cta__button" href="{{ "/B2B_Tomasz_Sulkowski.pdf" | relative_url }}" target="_blank" rel="noopener">Download the full sponsorship deck (PDF)</a>
+      <a class="cta__button" href="{{ "/B2B_Tomasz_Sulkowski.pdf" | relative_url }}" target="_blank" rel="noopener">Download sponsorship offer (PDF)</a>
       <button type="button" class="cta__button cta__call">Call me</button>
     </div>
 
@@ -84,4 +84,4 @@ description: "B2B cooperation with Tomasz Sułkowski - motorsport sponsorship an
   </article>
 </div>
 
-<script src="{{ "/assets/js/b2b.js" | relative_url }}" defer></script>
+<script src="{{ "/assets/js/b2b.js" | relative_url }}?v={{ site.time | date: "%s" }}" defer></script>
